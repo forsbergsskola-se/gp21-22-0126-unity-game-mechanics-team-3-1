@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerHH : MonoBehaviour
 {
     private Rigidbody myRigidbody;
     public float moveSpeed = 5f;
