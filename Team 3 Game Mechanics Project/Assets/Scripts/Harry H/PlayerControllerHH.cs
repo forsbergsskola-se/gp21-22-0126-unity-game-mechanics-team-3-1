@@ -1,97 +1,34 @@
 using System;
 using UnityEngine;
 
-public class PlayerControllerHH : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5;
-    public float jumpForce = 5f;
-    private Rigidbody myRigidBody;
-    private enum KeyState { Off, Down, Held, Up } 
-    private KeyState ksHorizontal = KeyState.Off;
-    private KeyState ksSpace = KeyState.Off;
+    private Rigidbody myRigidbody;
+    public float moveSpeed = 5f;
+    public float jumpForce = 500f;
 
     private void Awake()
     {
-        myRigidBody = this.gameObject.GetComponent<Rigidbody>();
+        myRigidbody = this.gameObject.GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        // Move left and right Inputs
-        
-        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D))
-        {
-            ksHorizontal = KeyState.Down;
-        } 
-        else if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D))
-        {
-            ksHorizontal = KeyState.Up;
-        }
-        
-        // Jumping inputs
+        //Get move input
+        //Preferably get input in Update()
+        var moveInput = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ksSpace = KeyState.Down;
-        }
-        else if (Input.GetKeyUp(KeyCode.Space))
-        {
-            ksSpace = KeyState.Up;
-        }
-    }
+        //Set move velocity
+        //Preferably interact with physics in FixedUpdate() 
+        myRigidbody.velocity = new Vector3(moveInput * moveSpeed, myRigidbody.velocity.y, 0);
 
-    private void FixedUpdate()
-    {
-        // Moving logic
-        
-        switch (ksHorizontal)
-        {
-            case KeyState.Down:
-            {
-                // "Move" key pressed
-                // set move Input & Interact with Physics
-                ksHorizontal = KeyState.Held;
-                break;
-            }
-            case KeyState.Held:
-                // Holding "Move" 
-                myRigidBody.velocity = new Vector3(Input.GetAxis("Horizontal") * moveSpeed, myRigidBody.velocity.y, 0);
-                break;
-            case KeyState.Off:
-                break;
-            case KeyState.Up:
-                // "Move" released
-                ksHorizontal = KeyState.Off;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+        //Get jump input
+        //Preferably get input in Update()
+        var jumpInput = Input.GetKeyDown(KeyCode.Space);
 
-        // Jumping logic
-        
-        switch (ksSpace)
-        {
-            case KeyState.Down:
-            {
-                ksSpace = KeyState.Held;
-                break;
-            }
-            case KeyState.Held:
-                // Holding "Jump"
-                if (myRigidBody.velocity.y == 0)
-                {
-                    Debug.Log("Jump");
-                    myRigidBody.AddForce(Vector3.up * jumpForce * 100);
-                }
-                break;
-            case KeyState.Off:
-                break;
-            case KeyState.Up:
-                // "Jump" released
-                ksSpace = KeyState.Off;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+        //Apply jump force
+        //Preferably interact with physics in FixedUpdate() 
+        if (jumpInput)
+            myRigidbody.AddForce(Vector3.up * jumpForce);
     }
 }
