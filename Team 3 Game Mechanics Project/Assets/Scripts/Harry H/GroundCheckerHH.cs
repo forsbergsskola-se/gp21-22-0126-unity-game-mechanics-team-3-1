@@ -15,8 +15,8 @@ public class GroundCheckerHH : MonoBehaviour
         // Debug.DrawRay(transform.position, Vector3.down * groundCheckLength, Color.magenta);
     }
 
-    // private void OnDrawGizmos()
-    // {
-    //     Gizmos.DrawSphere(transform.position + Vector3.down * groundCheckLength, groundCheckRadius);
-    // }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(transform.position + Vector3.down * groundCheckLength, groundCheckRadius);
+    }
 }
