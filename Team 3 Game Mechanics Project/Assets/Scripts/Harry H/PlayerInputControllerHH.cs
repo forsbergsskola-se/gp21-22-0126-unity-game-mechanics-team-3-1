@@ -16,7 +16,7 @@ public class PlayerInputControllerHH : MonoBehaviour
 
     private void Awake()
     {
-        commandContainer = this.gameObject.GetComponentInChildren<CommandContainerHH>();
+        commandContainer = this.gameObject.GetComponent<CommandContainerHH>();
     }
 
     private void Update()

@@ -1,4 +1,3 @@
-
 using System;
 using UnityEngine;
 
@@ -8,10 +7,10 @@ public class MoveTowardsPlayerAIHH : MonoBehaviour
     private CommandContainerHH commandContainer;
     private Transform playerTransform;
 
-    private void Awake()
+    private void Start()
     {
-        commandContainer = this.gameObject.GetComponent<CommandContainerHH>();
-        Player = GameObject.FindWithTag("Player");
+        commandContainer = this.gameObject.GetComponentInChildren<CommandContainerHH>();
+        Player = FindObjectOfType<PlayerIdentifierComponentHH>().gameObject; // looks for a component of type PlayerIdentifierComponent using Generics
         playerTransform = Player.transform;
     }
 
@@ -21,6 +20,8 @@ public class MoveTowardsPlayerAIHH : MonoBehaviour
         
         //directionToPlayer.Normalize(); alt way of normalizing via a method
         var horizontalDirectionToPlayer = directionToPlayer.x;
+
+        // Var horizontalDirectionToPlayer = Mathf.Sign(directionToPlayer.x); //if positive returns 1, negative returns -1 - always keeps enemy at max speed
 
         commandContainer.walkCommand = horizontalDirectionToPlayer;
     }

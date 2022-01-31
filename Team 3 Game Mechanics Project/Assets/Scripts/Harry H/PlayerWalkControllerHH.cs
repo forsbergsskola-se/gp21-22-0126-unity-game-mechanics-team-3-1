@@ -5,7 +5,6 @@ public class PlayerWalkControllerHH : MonoBehaviour
 {
     private Rigidbody myRigidbody;
     private CommandContainerHH commandContainer;
-    private PlayerInputControllerHH playerInputController;
     private GroundCheckerHH groundChecker;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float chargingMoveSpeedFactor = 0.5f;
@@ -13,9 +12,8 @@ public class PlayerWalkControllerHH : MonoBehaviour
     private void Awake()
     {
         myRigidbody = this.gameObject.GetComponent<Rigidbody>();
-        playerInputController = this.gameObject.GetComponent<PlayerInputControllerHH>();
+        commandContainer = this.GetComponentInChildren<CommandContainerHH>();
         groundChecker = this.gameObject.GetComponent<GroundCheckerHH>();
-        //playerInputController = this.GetComponentInChildren<PlayerInputControllerHH>();
     }
 
     private void Update()
