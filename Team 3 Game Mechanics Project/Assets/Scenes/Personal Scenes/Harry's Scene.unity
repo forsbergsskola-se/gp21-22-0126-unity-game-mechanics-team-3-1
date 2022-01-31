@@ -480,14 +480,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2331867176982728707, guid: fe95da27fd72bb84590c2a98b200f805, type: 3}
-      propertyPath: deathZone
-      value: -1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2331867176982728707, guid: fe95da27fd72bb84590c2a98b200f805, type: 3}
-      propertyPath: respawnTime
-      value: 2.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2692228540284082242, guid: fe95da27fd72bb84590c2a98b200f805, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -532,10 +524,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3260617660553224409, guid: fe95da27fd72bb84590c2a98b200f805, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 1f843a54cc23056428c366f97aaff47e, type: 2}
     - target: {fileID: 6623274330645269369, guid: fe95da27fd72bb84590c2a98b200f805, type: 3}
       propertyPath: m_Name
       value: Zombie
