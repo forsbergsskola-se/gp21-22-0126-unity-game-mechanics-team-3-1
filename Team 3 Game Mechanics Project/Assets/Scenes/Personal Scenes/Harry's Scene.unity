@@ -532,6 +532,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3260617660553224409, guid: fe95da27fd72bb84590c2a98b200f805, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 1f843a54cc23056428c366f97aaff47e, type: 2}
     - target: {fileID: 6623274330645269369, guid: fe95da27fd72bb84590c2a98b200f805, type: 3}
       propertyPath: m_Name
       value: Zombie
@@ -548,6 +552,18 @@ PrefabInstance:
     - target: {fileID: 2295047203930863470, guid: 38a9c64c3111c044dac2f13999f5f661, type: 3}
       propertyPath: m_Name
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295047203930863470, guid: 38a9c64c3111c044dac2f13999f5f661, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295047203930863470, guid: 38a9c64c3111c044dac2f13999f5f661, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 4302058791376504434, guid: 38a9c64c3111c044dac2f13999f5f661, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7020982333605110869, guid: 38a9c64c3111c044dac2f13999f5f661, type: 3}
       propertyPath: m_RootOrder
@@ -709,20 +725,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb8d6588dac755449931f2f70bca9311, type: 3}
---- !u!1 &7873017468246989583 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6623274330645269369, guid: fe95da27fd72bb84590c2a98b200f805, type: 3}
-  m_PrefabInstance: {fileID: 3938410265675927670}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7873017468246989592
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7873017468246989583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80ae43c1380a3604388da5b2ffe8b422, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
