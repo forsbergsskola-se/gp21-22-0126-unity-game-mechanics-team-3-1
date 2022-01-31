@@ -20,6 +20,11 @@ public class CameraControllerHH : MonoBehaviour {
  
     void LateUpdate() 
     {
+        HandleCamera();
+    }
+
+    private void HandleCamera()
+    {
         // check if in bounds on X plane
         wantedPosition.x = (wantedPosition.x < mapXBoundary) ? mapXBoundary : wantedPosition.x;
         wantedPosition.x = (wantedPosition.x > mapXBoundary) ? mapXBoundary : wantedPosition.x;

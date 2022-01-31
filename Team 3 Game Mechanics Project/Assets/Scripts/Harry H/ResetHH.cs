@@ -8,6 +8,11 @@ public class ResetHH : MonoBehaviour
     public float respawnTime = 3f;
     void Update()
     {
+        HandleReset();
+    }
+
+    private void HandleReset()
+    {
         if (this.gameObject.transform.position.y <= deathZone)
         {
             StartCoroutine(Reset());

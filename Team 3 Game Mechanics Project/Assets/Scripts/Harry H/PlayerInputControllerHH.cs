@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR;
 
 public class PlayerInputControllerHH : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class PlayerInputControllerHH : MonoBehaviour
     public bool JumpInput { get; private set; }
 
     private void Update()
+    {
+        HandleInput();
+    }
+
+    private void HandleInput()
     {
         MoveInput = Input.GetAxis("Horizontal");
         JumpInputDown = Input.GetKeyDown(KeyCode.Space);

@@ -9,6 +9,11 @@ public class GroundCheckerHH : MonoBehaviour
 
     private void Update()
     {
+        CheckIfGrounded();
+    }
+
+    private void CheckIfGrounded()
+    {
         var ray = new Ray(transform.position, Vector3.down);
         IsGrounded = Physics.SphereCast(ray, groundCheckRadius, groundCheckLength, groundLayers);
 

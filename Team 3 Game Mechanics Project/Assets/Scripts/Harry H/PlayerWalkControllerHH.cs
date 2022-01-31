@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR;
 
 public class PlayerWalkControllerHH : MonoBehaviour
 {
@@ -16,6 +17,11 @@ public class PlayerWalkControllerHH : MonoBehaviour
     }
 
     private void Update()
+    {
+        HandleWalking();
+    }
+
+    private void HandleWalking()
     {
         //Slower move speed while charging a jump.
         var currentMoveSpeed = moveSpeed;
