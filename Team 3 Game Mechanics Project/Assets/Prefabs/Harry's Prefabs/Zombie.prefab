@@ -196,7 +196,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6623274330645269369}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.3899994, y: 1.18, z: 0}
   m_LocalScale: {x: 0.10000001, y: 0.10000001, z: 0.10000001}
   m_ConstrainProportionsScale: 0
@@ -263,7 +263,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6623274330645269369}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1f843a54cc23056428c366f97aaff47e, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 10
@@ -369,5 +369,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec4af4bd058d6324d817b79dc284f613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathZone: -5
-  respawnTime: 3
+  deathZone: -1.5
+  respawnTime: 2.5
