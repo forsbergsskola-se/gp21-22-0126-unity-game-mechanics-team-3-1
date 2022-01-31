@@ -4,14 +4,14 @@ using UnityEngine;
 public class PlayerImmediateJumpControllerHH : MonoBehaviour
 {
     private Rigidbody myRigidbody;
-    private PlayerInputControllerHH playerInputController;
+    private CommandContainerHH commandContainer;
     private GroundCheckerHH groundChecker;
     [SerializeField] private float jumpForce = 500f;
 
     private void Awake()
     {
         myRigidbody = this.gameObject.GetComponent<Rigidbody>();
-        playerInputController = this.gameObject.GetComponent<PlayerInputControllerHH>();
+        commandContainer = this.gameObject.GetComponentInChildren<CommandContainerHH>();
         groundChecker = this.gameObject.GetComponent<GroundCheckerHH>();
     }
 
@@ -24,7 +24,7 @@ public class PlayerImmediateJumpControllerHH : MonoBehaviour
     {
         //Apply jump force
         //Preferably interact with physics in FixedUpdate() 
-        if (playerInputController.JumpInputDown && groundChecker.IsGrounded)
+        if (commandContainer.JumpCommandUp && groundChecker.IsGrounded)
             myRigidbody.AddForce(Vector3.up * jumpForce);
     }
 }
