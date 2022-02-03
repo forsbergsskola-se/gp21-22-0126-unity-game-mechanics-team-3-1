@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 5312177624631565593}
   - component: {fileID: 4302058791650098516}
   - component: {fileID: 4302058791650098517}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Enemy
-  m_TagString: Player
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2295047203930863470}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.16, y: 0.737, z: 0}
   m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
   m_ConstrainProportionsScale: 0
@@ -147,8 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3510898529d21a44b935e2ba8b964e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  chargingMoveSpeedFactor: 0.5
+  walkSpeedSO: {fileID: 11400000, guid: 02535501d7c81874b836c760b49497e0, type: 2}
 --- !u!1 &4302058791376504434
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +159,7 @@ GameObject:
   - component: {fileID: 4302058791376504435}
   - component: {fileID: 4302058791376504432}
   - component: {fileID: 4302058791376504433}
-  m_Layer: 9
+  m_Layer: 6
   m_Name: Commands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
