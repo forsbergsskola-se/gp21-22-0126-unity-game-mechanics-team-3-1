@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class JumpPad : MonoBehaviour
@@ -18,5 +15,4 @@ public class JumpPad : MonoBehaviour
         // Null check using null propagation operator
         other.GetComponent<Rigidbody>()?.AddForce(transform.up * jumpForce);
     }
-    
 }
