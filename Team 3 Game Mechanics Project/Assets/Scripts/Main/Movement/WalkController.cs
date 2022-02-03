@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.XR;
 
-public class PlayerWalkController : MonoBehaviour
+public class WalkController : MonoBehaviour
 {
     private Rigidbody myRigidbody;
     private CommandContainer commandContainer;

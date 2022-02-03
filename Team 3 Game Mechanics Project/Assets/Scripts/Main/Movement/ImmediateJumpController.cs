@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerImmediateJumpController : MonoBehaviour
+public class ImmediateJumpController : MonoBehaviour
 {
     private Rigidbody myRigidbody;
     private CommandContainer commandContainer;
