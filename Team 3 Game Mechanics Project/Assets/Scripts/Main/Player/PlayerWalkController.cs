@@ -1,19 +1,19 @@
 using UnityEngine;
 using UnityEngine.XR;
 
-public class PlayerWalkControllerHH : MonoBehaviour
+public class PlayerWalkController : MonoBehaviour
 {
     private Rigidbody myRigidbody;
-    private CommandContainerHH commandContainer;
-    private GroundCheckerHH groundChecker;
+    private CommandContainer commandContainer;
+    private GroundChecker groundChecker;
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float chargingMoveSpeedFactor = 0.5f;
     
     private void Awake()
     {
         myRigidbody = this.gameObject.GetComponent<Rigidbody>();
-        commandContainer = this.GetComponentInChildren<CommandContainerHH>();
-        groundChecker = this.gameObject.GetComponent<GroundCheckerHH>();
+        commandContainer = this.GetComponentInChildren<CommandContainer>();
+        groundChecker = this.gameObject.GetComponent<GroundChecker>();
     }
 
     private void Update()

@@ -2,9 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class PlayerInputControllerHH : MonoBehaviour
+public class PlayerInputController : MonoBehaviour
 {
-    private CommandContainerHH commandContainer;
+    private CommandContainer commandContainer;
     
     // currently these fields are not accessed from others scripts
     // but are left public to show an example of public getter with private setter
@@ -16,7 +16,7 @@ public class PlayerInputControllerHH : MonoBehaviour
 
     private void Awake()
     {
-        commandContainer = this.gameObject.GetComponent<CommandContainerHH>();
+        commandContainer = this.gameObject.GetComponent<CommandContainer>();
     }
 
     private void Update()

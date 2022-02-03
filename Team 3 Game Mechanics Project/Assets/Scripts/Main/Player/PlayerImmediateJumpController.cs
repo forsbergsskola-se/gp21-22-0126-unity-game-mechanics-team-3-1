@@ -1,18 +1,18 @@
 using System;
 using UnityEngine;
 
-public class PlayerImmediateJumpControllerHH : MonoBehaviour
+public class PlayerImmediateJumpController : MonoBehaviour
 {
     private Rigidbody myRigidbody;
-    private CommandContainerHH commandContainer;
-    private GroundCheckerHH groundChecker;
+    private CommandContainer commandContainer;
+    private GroundChecker groundChecker;
     [SerializeField] private float jumpForce = 500f;
 
     private void Awake()
     {
         myRigidbody = this.gameObject.GetComponent<Rigidbody>();
-        commandContainer = this.gameObject.GetComponentInChildren<CommandContainerHH>();
-        groundChecker = this.gameObject.GetComponent<GroundCheckerHH>();
+        commandContainer = this.gameObject.GetComponentInChildren<CommandContainer>();
+        groundChecker = this.gameObject.GetComponent<GroundChecker>();
     }
 
     private void Update()

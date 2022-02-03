@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class PlayerChargeJumpControllerHH : MonoBehaviour
+public class PlayerChargeJumpController : MonoBehaviour
 {
     private Rigidbody myRigidbody;
-    private CommandContainerHH commandContainer;
-    private GroundCheckerHH groundChecker;
+    private CommandContainer commandContainer;
+    private GroundChecker groundChecker;
     [SerializeField] private float minimumJumpForce = 100f;
     [SerializeField] private float maximumJumpForce = 1000f;
     [SerializeField] private float chargeTime = 1f;
@@ -14,8 +14,8 @@ public class PlayerChargeJumpControllerHH : MonoBehaviour
     private void Awake()
     {
         myRigidbody = this.gameObject.GetComponent<Rigidbody>();
-        commandContainer = this.gameObject.GetComponentInChildren<CommandContainerHH>();
-        groundChecker = this.gameObject.GetComponent<GroundCheckerHH>();
+        commandContainer = this.gameObject.GetComponentInChildren<CommandContainer>();
+        groundChecker = this.gameObject.GetComponent<GroundChecker>();
     }
 
     private void Update()

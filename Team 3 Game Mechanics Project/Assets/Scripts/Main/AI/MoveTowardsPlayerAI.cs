@@ -1,16 +1,16 @@
 using System;
 using UnityEngine;
 
-public class MoveTowardsPlayerAIHH : MonoBehaviour
+public class MoveTowardsPlayerAI : MonoBehaviour
 {
     private GameObject Player;
-    private CommandContainerHH commandContainer;
+    private CommandContainer commandContainer;
     private Transform playerTransform;
 
     private void Start()
     {
-        commandContainer = this.gameObject.GetComponentInChildren<CommandContainerHH>();
-        Player = FindObjectOfType<PlayerIdentifierComponentHH>().gameObject; // looks for a component of type PlayerIdentifierComponent using Generics
+        commandContainer = this.gameObject.GetComponentInChildren<CommandContainer>();
+        Player = FindObjectOfType<PlayerIdentifierComponent>().gameObject; // looks for a component of type PlayerIdentifierComponent using Generics
         playerTransform = Player.transform;
     }
 

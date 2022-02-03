@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class GroundCheckerHH : MonoBehaviour
+public class GroundChecker : MonoBehaviour
 {
     public bool IsGrounded { get; private set; }
     [SerializeField] private float groundCheckLength = 1f;
