@@ -11,7 +11,7 @@ public class DashHH : MonoBehaviour
     private Animator animator;
     
     // dashing variables
-    [SerializeField] private float dashingVelocity; //TODO: use scriptable object 
+    [SerializeField] private DashSpeedSO dashSpeedSo;
     [SerializeField] private float dashingTime;
     private Vector3 dashingDirection;
     public bool isDashing { get; private set; } = false;
@@ -30,6 +30,7 @@ public class DashHH : MonoBehaviour
         Rb = GetComponent<Rigidbody>();
         groundChecker = GetComponent<GroundChecker>();
         trailRenderer = GetComponent<TrailRenderer>();
+        trailRenderer.emitting = false;
     }
 
     // dash logic
@@ -78,7 +79,8 @@ public class DashHH : MonoBehaviour
         // dashing logic: set rigidbody velocity to normalised dash direction * modified velocity
         if (isDashing)
         {
-            Rb.velocity = dashingDirection.normalized * dashingVelocity;
+            // Uses scriptable object to vary dash speed between AI types & Player
+            Rb.velocity = dashingDirection.normalized * dashSpeedSo.DashVelocity;
             // return so not interrupted
             return;
         }
