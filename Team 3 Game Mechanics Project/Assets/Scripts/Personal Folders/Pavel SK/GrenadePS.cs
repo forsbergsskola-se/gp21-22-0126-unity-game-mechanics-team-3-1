@@ -7,18 +7,20 @@ public class GrenadePS : MonoBehaviour
 {
 
     public float delay = 3f;
+    public float radius = 5f;
+    public float force = 700f;
     public GameObject explosionEffect;
 
-    float countdown;
+    float _countdown;
     bool hasExploded = false;
 
     void Start(){
-        countdown = delay;
+        _countdown = delay;
     }
 
     void Update(){
-        countdown -= Time.deltaTime;
-        if (countdown <= 0f && !hasExploded)
+        _countdown -= Time.deltaTime;
+        if (_countdown <= 0f && !hasExploded)
         {
             Explode();
             hasExploded = true;
@@ -30,10 +32,22 @@ public class GrenadePS : MonoBehaviour
         
         //show effect
         Instantiate(explosionEffect, transform.position, transform.rotation);
-
+        
         //get nearby objects
-        //Add force
-        //Damage
+        Collider[] colliders = Physics.OverlapSphere(transform.position, radius);
+
+        foreach (Collider nearbyObject in colliders)
+        {
+            //Add force
+            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddExplosionForce(force, transform.position, radius);
+            }
+
+            //Damage
+        }
+        
         //Remove grenade
         Destroy(gameObject);
     }
