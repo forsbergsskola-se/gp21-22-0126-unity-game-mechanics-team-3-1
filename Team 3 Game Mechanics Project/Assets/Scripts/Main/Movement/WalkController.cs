@@ -12,7 +12,6 @@ public class WalkController : MonoBehaviour
 
     private DashHH dash;
 
-
     private void Awake()
     {
         myRigidbody = GetComponent<Rigidbody>();
@@ -23,9 +22,8 @@ public class WalkController : MonoBehaviour
 
     private void Update()
     {
-        
-        // Harry: This logic only applies to Player, as AI currently doesn't dash
-        if (CompareTag("Player"))
+        // Harry: Logic only applies if this Entity has a Dash component
+        if (GetComponent<DashHH>())
         {
             // Harry: Can only walk if not dashing
             if (dash.isDashing)
