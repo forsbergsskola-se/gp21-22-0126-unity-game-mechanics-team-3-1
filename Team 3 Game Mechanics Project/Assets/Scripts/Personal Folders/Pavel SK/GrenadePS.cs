@@ -38,7 +38,7 @@ public class GrenadePS : MonoBehaviour
 
         foreach (Collider nearbyObject in colliders)
         {
-            //Add force
+            //Add blast force
             Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
             if (rb != null)
             {
