@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7148a15a825885e48b6ddf46bc8107bc, type: 3}
-  m_Name: SlowWalkSpeed
+  m_Script: {fileID: 11500000, guid: 4a3e9b67bd45bbd4895467486731f83c, type: 3}
+  m_Name: DefaultDashSpeed
   m_EditorClassIdentifier: 
-  walkSpeed: 2
-  chargingWalkSpeedFactor: 0.5
+  dashVelocity: 18
