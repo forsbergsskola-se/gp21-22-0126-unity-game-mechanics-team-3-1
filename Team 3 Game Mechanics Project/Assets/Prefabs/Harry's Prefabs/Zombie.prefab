@@ -60,8 +60,8 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 10
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -174,7 +174,6 @@ GameObject:
   - component: {fileID: 2692228540284082242}
   - component: {fileID: 976041745104969992}
   - component: {fileID: 4372470679464576412}
-  - component: {fileID: 3260617660553224409}
   - component: {fileID: 6654345019391795505}
   - component: {fileID: 6377666689620087025}
   - component: {fileID: 4736287760575195376}
@@ -182,6 +181,7 @@ GameObject:
   - component: {fileID: 8789329845681866186}
   - component: {fileID: 6984366770066081904}
   - component: {fileID: 2331867176982728707}
+  - component: {fileID: 6413514414565479951}
   m_Layer: 7
   m_Name: Zombie
   m_TagString: Player
@@ -197,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6623274330645269369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.3899994, y: 1.18, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.10000001, y: 0.10000001, z: 0.10000001}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -256,20 +256,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3260617660553224409
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6623274330645269369}
-  m_Material: {fileID: 13400000, guid: 1f843a54cc23056428c366f97aaff47e, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 10
-  m_Height: 31
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!54 &6654345019391795505
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -370,3 +356,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathZone: -1.5
   respawnTime: 2.5
+--- !u!136 &6413514414565479951
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6623274330645269369}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
