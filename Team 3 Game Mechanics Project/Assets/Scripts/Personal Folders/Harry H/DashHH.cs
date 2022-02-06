@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 public class DashHH : MonoBehaviour
@@ -9,13 +10,16 @@ public class DashHH : MonoBehaviour
     private GroundChecker groundChecker;
     private TrailRenderer trailRenderer;
     private Animator animator;
+    private Transform playerTransform;
     
     // dashing variables
     [SerializeField] private DashSpeedSO dashSpeedSo;
     [SerializeField] private float dashingTime;
+
     private Vector3 dashingDirection;
     public bool isDashing { get; private set; } = false;
-    private bool canDash = true;
+    private bool canDash;
+    private bool NoWait = true;
     
     /// <summary>
     /// Bool activated by UpgradeUnlockedHH.cs once triggered.
@@ -31,6 +35,9 @@ public class DashHH : MonoBehaviour
         groundChecker = GetComponent<GroundChecker>();
         trailRenderer = GetComponent<TrailRenderer>();
         trailRenderer.emitting = false;
+        
+        playerTransform = FindObjectOfType<PlayerIdentifier>().gameObject.transform;
+        canDash = true;
     }
 
     // dash logic
@@ -40,9 +47,15 @@ public class DashHH : MonoBehaviour
         var dashInput = Input.GetButtonDown("Dash");
 
         // TODO: add stamina check or another reset factor to nerf this
-        // only dash when input is correct and is able to dash
-        if (dashInput && canDash)
+        // only dash when able to
+        if (canDash)
         {
+            // Player can only dash when input is given
+            if (GetComponent<PlayerIdentifier>() && !dashInput)
+            {
+                return;
+            }
+            
             // can't dash when dashing
             isDashing = true;
             canDash = false;
@@ -50,20 +63,22 @@ public class DashHH : MonoBehaviour
             // trail renderer triggers when dashing
             trailRenderer.emitting = true;
             
-            // toggles dash direction
-            dashingDirection = flyingDashUnlocked switch
+            // toggles dash direction for Player using input axis data
+            if (GetComponent<PlayerIdentifier>())
             {
-                // use raw horizontal to determine direction of dash (can move left or right)
-                false => new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0),
-                
-                // use raw horizontal and vertical inputs to determine direction of dash (can go diagonal and up)
-                true => new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0)
-            };
+                dashingDirection = flyingDashUnlocked switch
+                {
+                    // use raw horizontal to determine direction of dash (can move left or right)
+                    false => new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0),
 
-            // if no direction input use localScale X value to determine direction of dash
-            if (dashingDirection == Vector3.zero)
+                    // use raw horizontal and vertical inputs to determine direction of dash (can go diagonal and up)
+                    true => new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0)
+                };
+            }
+            // enemies use direction to Player for dash directiion
+            else
             {
-                dashingDirection = new Vector3(transform.localScale.x, 0, 0);
+                dashingDirection = new Vector3(playerTransform.position.x - transform.position.x, 0, 0);
             }
 
             // trigger coroutine
@@ -85,10 +100,10 @@ public class DashHH : MonoBehaviour
             return;
         }
         
-        // reset canDash
-        if (groundChecker.IsGrounded)
+        // can only dash once grounded again and after cooldown has ended
+        if (canDash == false && groundChecker.IsGrounded && NoWait)
         {
-            canDash = true;
+            StartCoroutine(DashCooldown());
         }
     }
 
@@ -98,5 +113,15 @@ public class DashHH : MonoBehaviour
         yield return new WaitForSeconds(dashingTime);
         trailRenderer.emitting = false;
         isDashing = false;
+    }
+
+    // unable to dash until cooldown time is reached
+    private IEnumerator DashCooldown()
+    {
+        NoWait = false;
+        yield return new WaitForSeconds(dashSpeedSo.DashCoolDownTime);
+        canDash = true;
+        NoWait = true;
+        Debug.Log("Can Dash again");
     }
 }

@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: VerySlowDashSpeed
   m_EditorClassIdentifier: 
   dashVelocity: 6
+  dashCooldownTime: 6
