@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -12,11 +11,17 @@ public class DashHH : MonoBehaviour
     private Animator animator;
     
     // dashing variables
-    [SerializeField] private float dashingVelocity;
+    [SerializeField] private float dashingVelocity; //TODO: use scriptable object 
     [SerializeField] private float dashingTime;
     private Vector3 dashingDirection;
     public bool isDashing { get; private set; } = false;
     private bool canDash = true;
+    
+    /// <summary>
+    /// Bool activated by UpgradeUnlockedHH.cs once triggered.
+    /// When true it unlocks an upgraded version of the dash.
+    /// </summary>
+    [HideInInspector] public bool flyingDashUnlocked = false;
 
 
     // assign components
@@ -33,6 +38,7 @@ public class DashHH : MonoBehaviour
         // assign unique input from input manager
         var dashInput = Input.GetButtonDown("Dash");
 
+        // TODO: add stamina check or another reset factor to nerf this
         // only dash when input is correct and is able to dash
         if (dashInput && canDash)
         {
@@ -42,10 +48,17 @@ public class DashHH : MonoBehaviour
             
             // trail renderer triggers when dashing
             trailRenderer.emitting = true;
-
-            // use raw horizontal and vertical inputs to determine direction of dash
-            dashingDirection = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
             
+            // toggles dash direction
+            dashingDirection = flyingDashUnlocked switch
+            {
+                // use raw horizontal to determine direction of dash (can move left or right)
+                false => new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0),
+                
+                // use raw horizontal and vertical inputs to determine direction of dash (can go diagonal and up)
+                true => new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0)
+            };
+
             // if no direction input use localScale X value to determine direction of dash
             if (dashingDirection == Vector3.zero)
             {
@@ -70,9 +83,7 @@ public class DashHH : MonoBehaviour
             return;
         }
         
-        // only dash when grounded
-        // TODO: add stamina or another reset factor to nerf this
-        
+        // reset canDash
         if (groundChecker.IsGrounded)
         {
             canDash = true;
