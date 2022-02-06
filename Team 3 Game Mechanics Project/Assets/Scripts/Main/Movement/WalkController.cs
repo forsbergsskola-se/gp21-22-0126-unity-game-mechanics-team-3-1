@@ -10,16 +10,29 @@ public class WalkController : MonoBehaviour
     // [SerializeField] private float chargingWalkSpeedFactor = 0.5f;
     [SerializeField] private WalkSpeedSO walkSpeedSO;
 
+    private DashHH dash;
+
 
     private void Awake()
     {
         myRigidbody = GetComponent<Rigidbody>();
         commandContainer = GetComponentInChildren<CommandContainer>();
         groundChecker = GetComponent<GroundChecker>();
+        dash = GetComponent<DashHH>();
     }
 
     private void Update()
     {
+        
+        // Harry: This logic only applies to Player, as AI currently doesn't dash
+        if (CompareTag("Player"))
+        {
+            // Harry: Can only walk if not dashing
+            if (dash.isDashing)
+            {
+                return;
+            }
+        }
         HandleWalking();
     }
 
