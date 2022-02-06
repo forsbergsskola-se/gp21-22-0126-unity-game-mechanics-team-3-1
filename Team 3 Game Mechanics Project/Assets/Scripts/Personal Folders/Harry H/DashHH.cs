@@ -15,7 +15,7 @@ public class DashHH : MonoBehaviour
     [SerializeField] private float dashingVelocity;
     [SerializeField] private float dashingTime;
     private Vector3 dashingDirection;
-    private bool isDashing;
+    public bool isDashing { get; private set; } = false;
     private bool canDash = true;
 
 
