@@ -13,7 +13,7 @@ public class ResetHH : MonoBehaviour
 
     private void HandleReset()
     {
-        if (this.gameObject.transform.position.y <= deathZone)
+        if (transform.position.y <= deathZone)
         {
             StartCoroutine(Reset());
         }

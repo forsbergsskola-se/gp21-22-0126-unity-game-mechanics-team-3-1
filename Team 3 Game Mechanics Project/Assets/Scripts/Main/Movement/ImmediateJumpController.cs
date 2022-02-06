@@ -10,9 +10,9 @@ public class ImmediateJumpController : MonoBehaviour
 
     private void Awake()
     {
-        myRigidbody = this.gameObject.GetComponent<Rigidbody>();
-        commandContainer = this.gameObject.GetComponentInChildren<CommandContainer>();
-        groundChecker = this.gameObject.GetComponent<GroundChecker>();
+        myRigidbody = GetComponent<Rigidbody>();
+        commandContainer = GetComponentInChildren<CommandContainer>();
+        groundChecker = GetComponent<GroundChecker>();
     }
 
     private void Update()
