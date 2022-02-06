@@ -179,7 +179,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4885006146027215240}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 1f843a54cc23056428c366f97aaff47e, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e22e2cc824ea243811623e896cd659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashingVelocity: 18
+  dashSpeedSo: {fileID: 11400000, guid: e0a98958b21657544979903bb98fca78, type: 2}
   dashingTime: 0.5
   flyingDashUnlocked: 0
 --- !u!114 &4070668070705464050
