@@ -6,7 +6,7 @@ public class Health : MonoBehaviour
 {
     private bool IsDead;
     [SerializeField] public int MaxHealth;
-    [HideInInspector] public float currentHealth;
+    [HideInInspector] public int currentHealth;
     private int healthDifference;
     private int value;
     public float damageCooldownTime;
