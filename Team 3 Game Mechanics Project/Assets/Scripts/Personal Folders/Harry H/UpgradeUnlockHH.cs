@@ -23,6 +23,7 @@ public class UpgradeUnlockHH : MonoBehaviour
         // Unlocks Air Dash if name matches
         if (name != "Dash Skull") return;
         dash.flyingDashUnlocked = true;
+        dash.canDash = true;
         Debug.Log("UNLOCKED: Air Dash");
         
         // De-active this gameObject

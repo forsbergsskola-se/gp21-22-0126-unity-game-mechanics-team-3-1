@@ -18,7 +18,7 @@ public class DashHH : MonoBehaviour
 
     private Vector3 dashingDirection;
     public bool isDashing { get; private set; } = false;
-    private bool canDash;
+    public bool canDash;
     private bool NoWait = true;
     
     /// <summary>
