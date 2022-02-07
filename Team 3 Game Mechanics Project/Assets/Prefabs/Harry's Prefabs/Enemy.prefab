@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5312177624631565593}
   - component: {fileID: 4302058791650098516}
   - component: {fileID: 4302058791650098517}
+  - component: {fileID: -8490199980458680411}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -148,6 +149,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeedSO: {fileID: 11400000, guid: 02535501d7c81874b836c760b49497e0, type: 2}
+--- !u!114 &-8490199980458680411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2295047203930863470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1dcbe80f312421468eb17532df1b616, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contactDamage: 10
 --- !u!1 &4302058791376504434
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,3 +223,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dabe8e11144206459950d9e1c865378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearDistance: 10
