@@ -18,7 +18,7 @@ public class ResetHH : MonoBehaviour
             StartCoroutine(Reset());
         }
     }
-    private IEnumerator Reset()
+    public IEnumerator Reset()
     {
         yield return new WaitForSeconds(respawnTime);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
