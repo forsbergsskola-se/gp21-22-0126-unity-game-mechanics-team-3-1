@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 5312177624631565593}
   - component: {fileID: 4302058791650098516}
   - component: {fileID: 4302058791650098517}
+  - component: {fileID: 7459243515497110808}
+  - component: {fileID: 4337356776585231046}
+  - component: {fileID: 5749445339680409967}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -148,6 +151,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeedSO: {fileID: 11400000, guid: 02535501d7c81874b836c760b49497e0, type: 2}
+--- !u!114 &7459243515497110808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2295047203930863470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9520e40969db7440925e27736cea7f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 5
+  damageCooldownTime: 0
+--- !u!114 &4337356776585231046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2295047203930863470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4ad7f3a53912c04da1463fd952fdca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boom: {fileID: 5749445339680409967}
+--- !u!114 &5749445339680409967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2295047203930863470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05e182c5644b0f8449fb9c5fa8126ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 7
+  force: 1000
+  explosionEffect: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
 --- !u!1 &4302058791376504434
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,3 +254,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dabe8e11144206459950d9e1c865378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearDistance: 10
