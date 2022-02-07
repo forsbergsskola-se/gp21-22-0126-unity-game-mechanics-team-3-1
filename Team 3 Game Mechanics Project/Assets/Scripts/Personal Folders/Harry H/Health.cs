@@ -11,21 +11,27 @@ public class Health : MonoBehaviour
     private int value;
     public float damageCooldownTime;
     private bool invulnerable = false;
+    
+    // Text Mesh Pro elements
     private TMP_Text PlayerHealthText;
+    private TMP_Text EnemyHealthText;
 
     public void Awake()
     {
+        //Sets Health to max on spawn
         currentHealth = MaxHealth;
         IsDead = false;
     }
 
     private void Update()
     {
+        //health can't exceed MaxHealth
         if (currentHealth > MaxHealth)
         {
             currentHealth = MaxHealth;
         }
 
+        // Death logic
         if (currentHealth <= 0)
         {
             currentHealth = 0;
@@ -33,11 +39,15 @@ public class Health : MonoBehaviour
             Debug.Log($"{name} is dead!");
         }
         
+        // Death Clean-Up
         switch (IsDead)
         {
+            // Enemies disabled
             case true when !GetComponent<PlayerIdentifier>():
                 gameObject.SetActive(false);
                 break;
+            
+            // Player death resets scene
             case true when GetComponent<PlayerIdentifier>():
                 StartCoroutine(GetComponent<ResetHH>().Reset());
                 break;
@@ -46,17 +56,19 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(int damageCaused)
     {
+        // can't take damage while invulnerable
         if (invulnerable) return;
         StartCoroutine(DamageCooldown());
+        
+        // take damage logic
         currentHealth = (currentHealth - damageCaused);
-
-        // TODO: Visually show enemy Health
+        
+        // Update Health Text UI
         if (!GetComponent<PlayerIdentifier>())
         { 
-            Debug.Log($"{name} took {damageCaused} damage");
-            Debug.Log($"{name}'s current health = {currentHealth}");
+            UpdateEnemyHealthText();
         }
-        else
+        else if (GetComponent<PlayerIdentifier>())
         {
             UpdatePlayerHealthText();
         }
@@ -64,24 +76,34 @@ public class Health : MonoBehaviour
 
     public void Heal(int healAmount)
     {
+        // can't heal if full health
         if (currentHealth >= MaxHealth) return;
-        currentHealth = currentHealth+= healAmount;
         
+        // heal logic
+        currentHealth = currentHealth+= healAmount;
         UpdatePlayerHealthText();
     }
 
     private IEnumerator DamageCooldown()
     {
+        // invulnerable to damage while WaitForSeconds active
         invulnerable = true;
         yield return new WaitForSeconds(damageCooldownTime);
         invulnerable = false;
     }
 
-    public void UpdatePlayerHealthText()
+    // Only triggered when affected by damage or healing
+    private void UpdatePlayerHealthText()
     {
         if (!GetComponent<PlayerIdentifier>()) return;
         PlayerHealthText = GameObject.Find("Health Text").GetComponent<TMP_Text>();
         PlayerHealthText.text = $"HEALTH: {currentHealth}";
     }
-  
+    
+    // Only triggered when affected by damage
+    private void UpdateEnemyHealthText()
+    {
+        EnemyHealthText = GetComponentInChildren<TMP_Text>();
+        EnemyHealthText.text = $"HEALTH: {currentHealth}";
+    }
 }
