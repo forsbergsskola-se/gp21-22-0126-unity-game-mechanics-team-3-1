@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GrenadeThrower : MonoBehaviour{
 
-    public float throwForce = 40f;
-    public GameObject grenadePrefab;
+    [SerializeField] float throwForce = 40f;
+    [SerializeField] GameObject grenadePrefab;
     
     void Update()
     {
