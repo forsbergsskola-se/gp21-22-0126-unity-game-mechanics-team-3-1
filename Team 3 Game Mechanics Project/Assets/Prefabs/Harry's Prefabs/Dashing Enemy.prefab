@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 9077698208127721344}
   - component: {fileID: 9077698208303980325}
   - component: {fileID: 9077698208303980326}
+  - component: {fileID: 6547232850679078588}
+  - component: {fileID: 6547232850679078589}
   m_Layer: 6
   m_Name: Dashing Enemy
   m_TagString: Enemy
@@ -31,7 +33,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6453702815495493051}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.07, y: 0.07, z: 0.07}
   m_ConstrainProportionsScale: 0
@@ -274,6 +276,33 @@ MonoBehaviour:
   dashingTime: 0.5
   canDash: 0
   flyingDashUnlocked: 0
+--- !u!114 &6547232850679078588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453702815495493051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dabe8e11144206459950d9e1c865378, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerNearDistance: 10
+--- !u!114 &6547232850679078589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6453702815495493051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9520e40969db7440925e27736cea7f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 50
+  damageCooldownTime: 0
 --- !u!1 &9077698207837234343
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,3 +364,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dabe8e11144206459950d9e1c865378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearDistance: 10

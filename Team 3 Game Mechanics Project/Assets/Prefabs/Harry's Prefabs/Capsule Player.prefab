@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 869681467738780173}
   - component: {fileID: 1461182420}
   - component: {fileID: 349993649}
+  - component: {fileID: 6560784583761516829}
   m_Layer: 7
   m_Name: Capsule Player
   m_TagString: Player
@@ -531,6 +532,20 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6560784583761516829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4885006146027215240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9520e40969db7440925e27736cea7f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
+  damageCooldownTime: 3
 --- !u!1001 &8707240329738691545
 PrefabInstance:
   m_ObjectHideFlags: 0
