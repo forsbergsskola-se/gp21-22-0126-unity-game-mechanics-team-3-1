@@ -8,6 +8,7 @@ public class Explode : MonoBehaviour
     [SerializeField] float radius = 5f;
     [SerializeField] float force = 700f;
     [SerializeField] GameObject explosionEffect;
+    [SerializeField] int damageValue = 25;
     
     
     internal void ExplodeSomething(){
@@ -39,6 +40,12 @@ public class Explode : MonoBehaviour
             if (rb != null)
             {
                 rb.AddExplosionForce(force, transform.position, radius);
+            }
+            
+            // Harry: added take damage logic
+            if (nearbyObject.CompareTag("Enemy"))
+            {
+                nearbyObject.GetComponent<Health>().TakeDamage(damageValue);
             }
         }
         
