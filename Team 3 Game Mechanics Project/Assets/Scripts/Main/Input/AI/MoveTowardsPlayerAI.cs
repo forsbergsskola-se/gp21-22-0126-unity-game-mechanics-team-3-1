@@ -7,12 +7,22 @@ public class MoveTowardsPlayerAI : MonoBehaviour
     private CommandContainer commandContainer;
     private Transform playerTransform;
     [SerializeField] private float playerNearDistance = 10f;
+    private int contactDamage = 10;
 
     private void Start()
     {
         commandContainer = GetComponentInChildren<CommandContainer>();
         Player = FindObjectOfType<PlayerIdentifier>().gameObject; // looks for a component of type PlayerIdentifierComponent using Generics
         playerTransform = Player.transform;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log($"colliding with {collision.gameObject}");
+            collision.gameObject.GetComponent<Health>().TakeDamage(contactDamage);
+        }
     }
 
     private void Update()
