@@ -1,30 +1,17 @@
-using System;
 using UnityEngine;
 
 public class MoveTowardsPlayerAI : MonoBehaviour
 {
-    private GameObject Player;
     private CommandContainer commandContainer;
     private Transform playerTransform;
     [SerializeField] private float playerNearDistance = 10f;
-    private int contactDamage = 10;
 
     private void Start()
     {
         commandContainer = GetComponentInChildren<CommandContainer>();
-        Player = FindObjectOfType<PlayerIdentifier>().gameObject; // looks for a component of type PlayerIdentifierComponent using Generics
-        playerTransform = Player.transform;
+        playerTransform = FindObjectOfType<PlayerIdentifier>().gameObject.transform;
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log($"colliding with {collision.gameObject}");
-            collision.gameObject.GetComponent<Health>().TakeDamage(contactDamage);
-        }
-    }
-
+    
     private void Update()
     {
         //var proximityToPlayer = Vector3.Distance(transform.position, playerTransform.position)
@@ -44,7 +31,6 @@ public class MoveTowardsPlayerAI : MonoBehaviour
         var horizontalDirectionToPlayer = directionToPlayer.x;
 
         // Var horizontalDirectionToPlayer = Mathf.Sign(directionToPlayer.x); //if positive returns 1, negative returns -1 - always keeps enemy at max speed
-
         commandContainer.walkCommand = horizontalDirectionToPlayer;
     }
 }
