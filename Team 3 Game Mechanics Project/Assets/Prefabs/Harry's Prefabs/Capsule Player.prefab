@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 4070668070705464050}
   - component: {fileID: 869681467738780173}
   - component: {fileID: 1461182420}
+  - component: {fileID: 349993649}
   m_Layer: 7
   m_Name: Capsule Player
   m_TagString: Player
@@ -242,6 +243,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 500
+  onJump:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameObjectToggler, Assembly-CSharp
+        m_MethodName: ToggleGameObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8704590900800166529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -255,8 +271,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minimumJumpForce: 100
-  maximumJumpForce: 700
+  maximumJumpForce: 300
   chargeTime: 1
+  onChargeJump:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 349993649}
+        m_TargetAssemblyTypeName: ScaleAnimation, Assembly-CSharp
+        m_MethodName: PlayAnimation
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 1
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7101382026454279694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,6 +302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeedSo: {fileID: 11400000, guid: e0a98958b21657544979903bb98fca78, type: 2}
   dashingTime: 0.5
+  canDash: 0
   flyingDashUnlocked: 0
 --- !u!114 &4070668070705464050
 MonoBehaviour:
@@ -408,6 +440,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 40
   grenadePrefab: {fileID: 316436152327308281, guid: 62a5f1b2cbd1657499cfc928d4109d29, type: 3}
+--- !u!114 &349993649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4885006146027215240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bacea84b9b46444da26d1ee6c4ec162, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationDuration: 1
+  scaleAnimationCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 1.0176511
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &8707240329738691545
 PrefabInstance:
   m_ObjectHideFlags: 0
