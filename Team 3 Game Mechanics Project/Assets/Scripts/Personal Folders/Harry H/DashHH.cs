@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DashHH : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class DashHH : MonoBehaviour
     public bool isDashing { get; private set; } = false;
     public bool canDash;
     private bool NoWait = true;
+
+    private Image energyBar;
+    private GameObject energyText;
+    private int energyFillAmount;
     
     /// <summary>
     /// Bool activated by UpgradeUnlockedHH.cs once triggered.
@@ -36,14 +41,27 @@ public class DashHH : MonoBehaviour
         trailRenderer = GetComponent<TrailRenderer>();
         trailRenderer.emitting = false;
         cameraShake = GetComponentInChildren<CamerShakeHH>();
-        
         playerTransform = FindObjectOfType<PlayerIdentifier>().gameObject.transform;
         canDash = true;
+
+        // Assign Player Specific components and their start values
+        if (!GetComponent<PlayerIdentifier>()) return;
+        energyBar = GameObject.Find("Energy Fill").GetComponent<Image>();
+        energyText = GameObject.Find("Energy Text");
+        energyBar.fillAmount = 1;
+        energyText.SetActive(true);
     }
 
     // dash logic
     private void Update()
     {
+        // dash energy UI logic
+        if (GetComponent<PlayerIdentifier>())
+        {
+            energyBar.fillAmount = canDash == false ? 0 : 1;
+            energyText.SetActive(canDash != false);
+        }
+        
         // assign unique input from input manager
         var dashInput = Input.GetButtonDown("Dash");
 
