@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class MoveTowardsPlayerAI : MonoBehaviour
@@ -12,7 +11,6 @@ public class MoveTowardsPlayerAI : MonoBehaviour
         commandContainer = GetComponentInChildren<CommandContainer>();
         playerTransform = FindObjectOfType<PlayerIdentifier>().gameObject.transform;
     }
-    
     
     private void Update()
     {
@@ -33,7 +31,6 @@ public class MoveTowardsPlayerAI : MonoBehaviour
         var horizontalDirectionToPlayer = directionToPlayer.x;
 
         // Var horizontalDirectionToPlayer = Mathf.Sign(directionToPlayer.x); //if positive returns 1, negative returns -1 - always keeps enemy at max speed
-
         commandContainer.walkCommand = horizontalDirectionToPlayer;
     }
 }

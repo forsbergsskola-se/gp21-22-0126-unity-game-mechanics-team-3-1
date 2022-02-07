@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class EnemyCollideDamage : MonoBehaviour
 {
-    private GameObject Player;
+    private GameObject player;
     public int contactDamage = 10;
     private bool damageDuringCollisionStay = false;
 
     private void Awake()
     {
-        Player = FindObjectOfType<PlayerIdentifier>().gameObject; // looks for a component of type PlayerIdentifierComponent using Generics
-
+        player = FindObjectOfType<PlayerIdentifier>().gameObject;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -32,11 +31,12 @@ public class EnemyCollideDamage : MonoBehaviour
     
     private void CheckIfCanDealDamage(Collision collision)
     {
-        if (collision.gameObject.GetComponent<PlayerIdentifier>())
+        if (collision.gameObject == player)
         {
-            Debug.Log($"colliding with {collision.gameObject}");
-            collision.gameObject.GetComponent<Health>().TakeDamage(contactDamage);
+            Debug.Log($"colliding with {player}");
+            player.GetComponent<Health>().TakeDamage(contactDamage);
             damageDuringCollisionStay = true;
         }
     }
+
 }
