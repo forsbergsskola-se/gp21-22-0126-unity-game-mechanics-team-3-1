@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 5020473359959451472}
   - component: {fileID: 8196582448248788911}
   - component: {fileID: 9066211008280443510}
+  - component: {fileID: 8569912060690083110}
   m_Layer: 7
   m_Name: Capsule PlayerPS
   m_TagString: Player
@@ -181,6 +182,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 500
+  onJump:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &368536158345887523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +200,9 @@ MonoBehaviour:
   minimumJumpForce: 100
   maximumJumpForce: 700
   chargeTime: 1
+  onChargeJump:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2259834721825178540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,6 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeedSo: {fileID: 11400000, guid: e0a98958b21657544979903bb98fca78, type: 2}
   dashingTime: 0.5
+  canDash: 0
   flyingDashUnlocked: 0
 --- !u!114 &5020473359959451472
 MonoBehaviour:
@@ -347,6 +355,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 20
   grenadePrefab: {fileID: 316436152327308281, guid: 62a5f1b2cbd1657499cfc928d4109d29, type: 3}
+--- !u!114 &8569912060690083110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4475067119768189994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9520e40969db7440925e27736cea7f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
+  damageCooldownTime: 0
 --- !u!1 &6179030119535121526
 GameObject:
   m_ObjectHideFlags: 0
