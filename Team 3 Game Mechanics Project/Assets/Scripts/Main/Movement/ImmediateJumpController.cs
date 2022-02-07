@@ -1,5 +1,5 @@
-using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ImmediateJumpController : MonoBehaviour
 {
@@ -7,6 +7,7 @@ public class ImmediateJumpController : MonoBehaviour
     private CommandContainer commandContainer;
     private GroundChecker groundChecker;
     [SerializeField] private float jumpForce = 500f;
+    [SerializeField] private UnityEvent onJump;
 
     private void Awake()
     {
@@ -24,7 +25,8 @@ public class ImmediateJumpController : MonoBehaviour
     {
         //Apply jump force
         //Preferably interact with physics in FixedUpdate() 
-        if (commandContainer.JumpCommandUp && groundChecker.IsGrounded)
-            myRigidbody.AddForce(Vector3.up * jumpForce);
+        if (!commandContainer.JumpCommandDown || !groundChecker.IsGrounded) return;
+        myRigidbody.AddForce(Vector3.up * jumpForce);
+        onJump.Invoke();
     }
 }
