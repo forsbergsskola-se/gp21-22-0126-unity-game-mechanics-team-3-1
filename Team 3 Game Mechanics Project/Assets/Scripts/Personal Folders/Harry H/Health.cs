@@ -3,10 +3,9 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private bool IsDead = false;
-    [SerializeField] private int MaxHealth;
-    private float currentHealth;
-    private float health;
+    private bool IsDead;
+    [SerializeField] public int MaxHealth;
+    [HideInInspector] public float currentHealth;
     private int healthDifference;
     private int value;
     public float damageCooldownTime;
@@ -15,12 +14,12 @@ public class Health : MonoBehaviour
     public void Awake()
     {
         currentHealth = MaxHealth;
-        health = MaxHealth;
+        IsDead = false;
     }
 
     private void Update()
     {
-        currentHealth = health;
+        Mathf.Clamp(currentHealth, 0, MaxHealth);
         
         if (currentHealth > MaxHealth)
         {
@@ -42,14 +41,16 @@ public class Health : MonoBehaviour
     {
         if (invulnerable) return;
         StartCoroutine(DamageCooldown());
-        health = (health - damageCaused);
+        currentHealth = (currentHealth - damageCaused);
         Debug.Log($"{name} took {damageCaused} damage");
         Debug.Log($"{name}'s current health = {currentHealth}");
     }
 
     public void Heal(int healAmount)
     {
-        currentHealth += healAmount;
+        currentHealth = currentHealth+= healAmount;
+        Debug.Log($"{name} healed by {healAmount} points");
+        Debug.Log($"{name}'s curren health: {currentHealth}");
     }
 
     private IEnumerator DamageCooldown()
