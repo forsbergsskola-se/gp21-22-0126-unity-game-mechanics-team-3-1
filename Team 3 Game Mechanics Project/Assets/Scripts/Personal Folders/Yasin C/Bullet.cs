@@ -5,14 +5,14 @@ public class Bullet : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.transform.tag=="Enemie")
+        if (collision.transform.tag=="Enemy")
         {
-            Destroy(collision.gameObject);
+            Destroy(this.gameObject);
         }
     }
 
-    private void OnCollision(GameObject Bullet)
+    private void OnCollision()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 5f); 
     }
 }
