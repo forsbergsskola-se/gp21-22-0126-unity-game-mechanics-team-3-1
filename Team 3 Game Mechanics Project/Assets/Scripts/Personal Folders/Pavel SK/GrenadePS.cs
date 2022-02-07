@@ -6,10 +6,10 @@ using UnityEngine;
 public class GrenadePS : MonoBehaviour
 {
 
-    public float delay = 3f;
-    public float radius = 5f;
-    public float force = 700f;
-    public GameObject explosionEffect;
+    [SerializeField] float delay = 3f;
+    [SerializeField] float radius = 5f;
+    [SerializeField] float force = 700f;
+    [SerializeField] GameObject explosionEffect;
 
     float _countdown;
     bool hasExploded = false;
