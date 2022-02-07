@@ -11,6 +11,7 @@ public class DashHH : MonoBehaviour
     private TrailRenderer trailRenderer;
     private Animator animator;
     private Transform playerTransform;
+    private CamerShakeHH cameraShake;
     
     // dashing variables
     [SerializeField] private DashSpeedSO dashSpeedSo;
@@ -35,6 +36,7 @@ public class DashHH : MonoBehaviour
         groundChecker = GetComponent<GroundChecker>();
         trailRenderer = GetComponent<TrailRenderer>();
         trailRenderer.emitting = false;
+        cameraShake = GetComponentInChildren<CamerShakeHH>();
         
         playerTransform = FindObjectOfType<PlayerIdentifier>().gameObject.transform;
         canDash = true;
@@ -62,10 +64,12 @@ public class DashHH : MonoBehaviour
             
             // trail renderer triggers when dashing
             trailRenderer.emitting = true;
-            
+
             // toggles dash direction for Player using input axis data
             if (GetComponent<PlayerIdentifier>())
             {
+                StartCoroutine(cameraShake.Shake(.15f, .4f));
+
                 dashingDirection = flyingDashUnlocked switch
                 {
                     // use raw horizontal to determine direction of dash (can move left or right)
