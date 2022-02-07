@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Health : MonoBehaviour
@@ -10,6 +11,7 @@ public class Health : MonoBehaviour
     private int value;
     public float damageCooldownTime;
     private bool invulnerable = false;
+    private TMP_Text PlayerHealthText;
 
     public void Awake()
     {
@@ -19,21 +21,26 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
-        Mathf.Clamp(currentHealth, 0, MaxHealth);
-        
         if (currentHealth > MaxHealth)
         {
             currentHealth = MaxHealth;
         }
-        
+
         if (currentHealth <= 0)
         {
+            currentHealth = 0;
             IsDead = true;
             Debug.Log($"{name} is dead!");
-            if (!GetComponent<PlayerIdentifier>())
-            {
+        }
+        
+        switch (IsDead)
+        {
+            case true when !GetComponent<PlayerIdentifier>():
                 gameObject.SetActive(false);
-            }
+                break;
+            case true when GetComponent<PlayerIdentifier>():
+                StartCoroutine(GetComponent<ResetHH>().Reset());
+                break;
         }
     }
 
@@ -42,15 +49,25 @@ public class Health : MonoBehaviour
         if (invulnerable) return;
         StartCoroutine(DamageCooldown());
         currentHealth = (currentHealth - damageCaused);
-        Debug.Log($"{name} took {damageCaused} damage");
-        Debug.Log($"{name}'s current health = {currentHealth}");
+
+        // TODO: Visually show enemy Health
+        if (!GetComponent<PlayerIdentifier>())
+        { 
+            Debug.Log($"{name} took {damageCaused} damage");
+            Debug.Log($"{name}'s current health = {currentHealth}");
+        }
+        else
+        {
+            UpdatePlayerHealthText();
+        }
     }
 
     public void Heal(int healAmount)
     {
+        if (currentHealth >= MaxHealth) return;
         currentHealth = currentHealth+= healAmount;
-        Debug.Log($"{name} healed by {healAmount} points");
-        Debug.Log($"{name}'s curren health: {currentHealth}");
+        
+        UpdatePlayerHealthText();
     }
 
     private IEnumerator DamageCooldown()
@@ -59,4 +76,12 @@ public class Health : MonoBehaviour
         yield return new WaitForSeconds(damageCooldownTime);
         invulnerable = false;
     }
+
+    public void UpdatePlayerHealthText()
+    {
+        if (!GetComponent<PlayerIdentifier>()) return;
+        PlayerHealthText = GameObject.Find("Health Text").GetComponent<TMP_Text>();
+        PlayerHealthText.text = $"HEALTH: {currentHealth}";
+    }
+  
 }
