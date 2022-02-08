@@ -5,5 +5,4 @@ public class DashSpeedSO : ScriptableObject
     [SerializeField] private float dashVelocity = 18f;
     [SerializeField] private float dashCooldownTime = 3f;
     public float DashVelocity => dashVelocity;
-    public float DashCoolDownTime => dashCooldownTime;
-}
+    public float DashCoolDownTime => dashCooldownTime; }
