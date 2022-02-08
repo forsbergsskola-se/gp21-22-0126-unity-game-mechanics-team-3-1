@@ -96,10 +96,24 @@ public class DashHH : MonoBehaviour
                     true => new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0)
                 };
             }
-            // enemies use direction to Player for dash directiion
+            // enemies use direction to Player for dash direction
             else
             {
-                dashingDirection = new Vector3(playerTransform.position.x - transform.position.x, 0, 0);
+                var proximityToPlayer = Mathf.Abs(playerTransform.position.x - transform.position.x);
+                if (proximityToPlayer < 10)
+                {
+                    // Dasher AI logic: uses dash to pursue player
+                    if (GetComponent<DasherAIIdentifier>()) 
+                        dashingDirection = new Vector3(playerTransform.position.x - transform.position.x, 0, 0);
+                
+                    // Sky Dasher AI Logic: uses dash to go into the air above the Player
+                    else if ((proximityToPlayer < 5) && GetComponent<SkyDasherAIIdentifier>())
+                        dashingDirection = new Vector3(0, transform.position.y + 8, 0);
+
+                    // Evader Ai Logic: uses dash to get away from player when too close
+                    else if ((proximityToPlayer < 2) && (GetComponent<EvaderAIIdentifier>()))
+                        dashingDirection = new Vector3(playerTransform.position.x + transform.position.x, 0, 0);
+                }
             }
 
             // trigger coroutine
