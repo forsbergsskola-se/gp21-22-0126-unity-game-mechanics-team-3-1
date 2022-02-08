@@ -29,6 +29,16 @@ public class Health : MonoBehaviour
         if (currentHealth > MaxHealth)
         {
             currentHealth = MaxHealth;
+            
+            // Health UI corrected
+            if (!GetComponent<PlayerIdentifier>())
+            { 
+                UpdateEnemyHealthText();
+            }
+            else if (GetComponent<PlayerIdentifier>())
+            {
+                UpdatePlayerHealthText();
+            }
         }
 
         // Death logic
