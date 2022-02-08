@@ -8,7 +8,7 @@ public class Explode : MonoBehaviour
     [SerializeField] float radius = 5f;
     [SerializeField] float force = 700f;
     [SerializeField] GameObject explosionEffect;
-    [SerializeField] int damageValue = 25;
+    [SerializeField] int damageValue;
     
     
     internal void ExplodeSomething(){
