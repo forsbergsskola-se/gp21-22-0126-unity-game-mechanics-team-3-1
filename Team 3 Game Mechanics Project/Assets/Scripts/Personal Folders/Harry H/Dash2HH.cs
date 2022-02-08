@@ -1,19 +1,18 @@
-using System;
 using UnityEngine;
 
 public class Dash2HH : MonoBehaviour
 {
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
     private float dashVelocity = 45f;
     private float dashTime;
     private float startDashTime = 0.2f;
-    private int dashDirection;
+    private int dashDirection; // change to Vector3
     private CameraShakeHH cameraShake;
     private TrailRenderer trailRenderer;
 
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         cameraShake = GetComponent<CameraShakeHH>();
         trailRenderer = GetComponent<TrailRenderer>();
     }
@@ -21,7 +20,7 @@ public class Dash2HH : MonoBehaviour
     private void Update()
     {
         // check if already dashing
-        if (dashDirection == 0)
+        if (dashDirection == 0) // change to Vector3.zero
         {
             // use directional keycodes to assign a dash direction value
             if ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.LeftArrow)))
@@ -53,25 +52,24 @@ public class Dash2HH : MonoBehaviour
                 // resets
                 dashDirection = 0;
                 dashTime = startDashTime;
-                rigidbody.velocity = Vector3.zero;
+                rb.velocity = Vector3.zero;
                 trailRenderer.emitting = false;
             }
             else
             {
                 // slowly decrease dashTime until it reaches 0 so dash stops
                 dashTime -= Time.deltaTime;
-                
+
                 // switch expression: assigns velocity based on current dash direction until dashTime = 0
-                rigidbody.velocity = dashDirection switch
+                rb.velocity = dashDirection switch
                 {
                     1 => Vector3.left * dashVelocity, //rigidbody.velocity = Vector3.left * dashVelocity;
                     2 => Vector3.right * dashVelocity,
                     3 => Vector3.up * dashVelocity,
                     4 => Vector3.down * dashVelocity,
-                    _ => rigidbody.velocity
+                    _ => rb.velocity
                 };
             }
-
         }
     }
 
