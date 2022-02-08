@@ -3,10 +3,10 @@ using UnityEngine;
 public class Dash2HH : MonoBehaviour
 {
     private Rigidbody rb;
-    private float dashVelocity = 45f;
+    [SerializeField] private const float dashVelocity = 45f;
     private float dashTime;
-    private float startDashTime = 0.2f;
-    private int dashDirection; // change to Vector3
+    [SerializeField] private const float startDashTime = 0.2f;
+    private Vector3 dashDirection;
     private CameraShakeHH cameraShake;
     private TrailRenderer trailRenderer;
 
@@ -20,27 +20,31 @@ public class Dash2HH : MonoBehaviour
     private void Update()
     {
         // check if already dashing
-        if (dashDirection == 0) // change to Vector3.zero
+        if (dashDirection == Vector3.zero)
         {
-            // use directional keycodes to assign a dash direction value
+            // use directional keycodes to assign a dash direction value + trigger velocity/effects methods
             if ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.LeftArrow)))
             {
-                dashDirection = 1;
+                dashDirection = Vector3.left;
+                ApplyVelocity(dashDirection);
                 TriggerDashEffects();
             }
             else if ((Input.GetKeyDown(KeyCode.D)) || (Input.GetKeyDown(KeyCode.RightArrow)))
             {
-                dashDirection = 2;
+                dashDirection = Vector3.right;
+                ApplyVelocity(dashDirection);
                 TriggerDashEffects();
             }
             else if ((Input.GetKeyDown(KeyCode.W)) || (Input.GetKeyDown(KeyCode.UpArrow)))
             {
-                dashDirection = 3;
+                dashDirection = Vector3.up;
+                ApplyVelocity(dashDirection);
                 TriggerDashEffects();
             }
             else if ((Input.GetKeyDown(KeyCode.S)) || (Input.GetKeyDown(KeyCode.DownArrow)))
             {
-                dashDirection = 4;
+                dashDirection = Vector3.down;
+                ApplyVelocity(dashDirection);
                 TriggerDashEffects();
             }
         }
@@ -50,27 +54,23 @@ public class Dash2HH : MonoBehaviour
             if (dashTime <= 0)
             {
                 // resets
-                dashDirection = 0;
+                dashDirection = Vector3.zero;
+                rb.velocity = dashDirection;
                 dashTime = startDashTime;
-                rb.velocity = Vector3.zero;
                 trailRenderer.emitting = false;
             }
             else
             {
                 // slowly decrease dashTime until it reaches 0 so dash stops
                 dashTime -= Time.deltaTime;
-
-                // switch expression: assigns velocity based on current dash direction until dashTime = 0
-                rb.velocity = dashDirection switch
-                {
-                    1 => Vector3.left * dashVelocity, //rigidbody.velocity = Vector3.left * dashVelocity;
-                    2 => Vector3.right * dashVelocity,
-                    3 => Vector3.up * dashVelocity,
-                    4 => Vector3.down * dashVelocity,
-                    _ => rb.velocity
-                };
             }
         }
+    }
+
+    // assigns velocity based on current dash direction until dashTime = 0
+    private void ApplyVelocity(Vector3 dashDirection)
+    {
+        rb.velocity = dashDirection * dashVelocity;
     }
 
     private void TriggerDashEffects()
