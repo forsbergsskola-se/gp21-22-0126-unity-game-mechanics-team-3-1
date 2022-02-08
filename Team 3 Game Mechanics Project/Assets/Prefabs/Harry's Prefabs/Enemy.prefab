@@ -117,9 +117,7 @@ GameObject:
   - component: {fileID: 4302058791650098516}
   - component: {fileID: 4302058791650098517}
   - component: {fileID: -8490199980458680411}
-  - component: {fileID: 1409144230}
-  - component: {fileID: 3905183352185329688}
-  - component: {fileID: 4641733415585302876}
+  - component: {fileID: 5721824796881095629}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -267,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contactDamage: 10
---- !u!114 &1409144230
+--- !u!114 &5721824796881095629
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,36 +279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 50
   currentHealth: 0
-  damageCooldownTime: 0
---- !u!114 &3905183352185329688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2295047203930863470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05e182c5644b0f8449fb9c5fa8126ce5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 5
-  force: 700
-  explosionEffect: {fileID: 1828176872806910, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
-  damageValue: 40
---- !u!114 &4641733415585302876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2295047203930863470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4ad7f3a53912c04da1463fd952fdca5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  boom: {fileID: 3905183352185329688}
+  damageCooldownTime: 0.5
 --- !u!1 &4302058791376504434
 GameObject:
   m_ObjectHideFlags: 0
