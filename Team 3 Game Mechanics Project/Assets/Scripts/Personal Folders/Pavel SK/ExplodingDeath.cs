@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ExplodingDeath : MonoBehaviour{
+    public Collider enemyCollider;
+    public Collider playerCollider;
     public Explode boom;
     Health health;
+    
 
 
     void Start(){
@@ -20,9 +23,12 @@ public class ExplodingDeath : MonoBehaviour{
             boom.ExplodeSomething();
             Debug.Log("I exploded");
         }
-        
-        //When dead explode
-            //deal dmg to anything
-            
+    }
+
+    void OnCollisionEnter(Collision col){
+        if (col.gameObject.CompareTag("Player")){
+            Debug.Log("Colliding and exploding with player");
+            boom.ExplodeSomething();
+        }
     }
 }
