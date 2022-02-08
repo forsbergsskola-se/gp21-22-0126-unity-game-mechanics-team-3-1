@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -39,6 +40,12 @@ public class Health : MonoBehaviour
             {
                 UpdatePlayerHealthText();
             }
+            
+            //TODO: Inactivte and activate/reset Player when dead
+            // IsDead = false;
+            // if (GetComponent<PlayerIdentifier>()){
+            //     gameObject.SetActive(true);
+            // }
         }
 
         // Death logic
@@ -59,6 +66,7 @@ public class Health : MonoBehaviour
             
             // Player death resets scene
             case true when GetComponent<PlayerIdentifier>():
+                // TODO: gameObject.SetActive(false);
                 StartCoroutine(GetComponent<ResetHH>().Reset());
                 break;
         }
@@ -107,13 +115,14 @@ public class Health : MonoBehaviour
     {
         if (!GetComponent<PlayerIdentifier>()) return;
         PlayerHealthText = GameObject.Find("Health Text").GetComponent<TMP_Text>();
-        PlayerHealthText.text = $"HEALTH: {currentHealth}";
+        PlayerHealthText.text = $"HEALTH: {Math.Clamp(currentHealth, 0, MaxHealth)}";
+        
     }
     
     // Only triggered when affected by damage
     private void UpdateEnemyHealthText()
     {
         EnemyHealthText = GetComponentInChildren<TMP_Text>();
-        EnemyHealthText.text = $"HEALTH: {currentHealth}";
+        EnemyHealthText.text = $"{Math.Clamp(currentHealth, 0, MaxHealth)}";
     }
 }
