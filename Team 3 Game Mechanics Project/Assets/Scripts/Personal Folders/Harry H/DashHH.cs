@@ -11,7 +11,7 @@ public class DashHH : MonoBehaviour
     private TrailRenderer trailRenderer;
     private Animator animator;
     private Transform playerTransform;
-    private CamerShakeHH cameraShake;
+    private CameraShakeHH cameraShake;
     
     // dashing variables
     [SerializeField] private DashSpeedSO dashSpeedSo;
@@ -40,7 +40,7 @@ public class DashHH : MonoBehaviour
         groundChecker = GetComponent<GroundChecker>();
         trailRenderer = GetComponent<TrailRenderer>();
         trailRenderer.emitting = false;
-        cameraShake = GetComponentInChildren<CamerShakeHH>();
+        cameraShake = GetComponentInChildren<CameraShakeHH>();
         playerTransform = FindObjectOfType<PlayerIdentifier>().gameObject.transform;
         canDash = true;
 
