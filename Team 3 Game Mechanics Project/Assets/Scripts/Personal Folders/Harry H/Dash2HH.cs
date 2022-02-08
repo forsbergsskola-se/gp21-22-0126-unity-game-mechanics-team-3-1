@@ -7,10 +7,15 @@ public class Dash2HH : MonoBehaviour
     private float dashVelocity = 45f;
     private float dashTime;
     private float startDashTime = 0.2f;
-    private int dashDirection; 
+    private int dashDirection;
+    private CameraShakeHH cameraShake;
+    private TrailRenderer trailRenderer;
+
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+        cameraShake = GetComponent<CameraShakeHH>();
+        trailRenderer = GetComponent<TrailRenderer>();
     }
 
     private void Update()
@@ -22,18 +27,22 @@ public class Dash2HH : MonoBehaviour
             if ((Input.GetKeyDown(KeyCode.A)) || (Input.GetKeyDown(KeyCode.LeftArrow)))
             {
                 dashDirection = 1;
+                TriggerDashEffects();
             }
             else if ((Input.GetKeyDown(KeyCode.D)) || (Input.GetKeyDown(KeyCode.RightArrow)))
             {
                 dashDirection = 2;
+                TriggerDashEffects();
             }
             else if ((Input.GetKeyDown(KeyCode.W)) || (Input.GetKeyDown(KeyCode.UpArrow)))
             {
                 dashDirection = 3;
+                TriggerDashEffects();
             }
             else if ((Input.GetKeyDown(KeyCode.S)) || (Input.GetKeyDown(KeyCode.DownArrow)))
             {
                 dashDirection = 4;
+                TriggerDashEffects();
             }
         }
         else
@@ -45,6 +54,7 @@ public class Dash2HH : MonoBehaviour
                 dashDirection = 0;
                 dashTime = startDashTime;
                 rigidbody.velocity = Vector3.zero;
+                trailRenderer.emitting = false;
             }
             else
             {
@@ -63,5 +73,11 @@ public class Dash2HH : MonoBehaviour
             }
 
         }
+    }
+
+    private void TriggerDashEffects()
+    {
+        StartCoroutine(cameraShake.Shake(.15f, .4f));
+        trailRenderer.emitting = true;
     }
 }

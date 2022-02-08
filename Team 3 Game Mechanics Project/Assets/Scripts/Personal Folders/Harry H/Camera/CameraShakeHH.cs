@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class CamerShakeHH : MonoBehaviour
+public class CameraShakeHH : MonoBehaviour
 {
     private float elapsed;
     private Vector3 originalPos;
