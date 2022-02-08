@@ -15,9 +15,10 @@ public class ExplodingDeath : MonoBehaviour{
 
     void Update(){
         
-        //When health 0 die
-        if (health.MaxHealth <= 0){
-            
+        //When health 0 die and explode
+        if (health.currentHealth <= 0f){
+            boom.ExplodeSomething();
+            Debug.Log("I exploded");
         }
         
         //When dead explode
