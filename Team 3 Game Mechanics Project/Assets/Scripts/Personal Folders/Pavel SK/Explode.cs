@@ -43,7 +43,7 @@ public class Explode : MonoBehaviour
             }
             
             // Harry: added take damage logic
-            if (nearbyObject.CompareTag("Enemy"))
+            if (nearbyObject.CompareTag("Enemy") || nearbyObject.CompareTag("Player"))
             {
                 nearbyObject.GetComponent<Health>().TakeDamage(damageValue);
             }
