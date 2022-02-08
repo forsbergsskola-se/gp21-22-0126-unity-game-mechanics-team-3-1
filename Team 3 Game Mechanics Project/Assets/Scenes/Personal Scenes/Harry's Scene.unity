@@ -235,11 +235,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 996737705248919061, guid: faf1269e829890346b068831984ef101, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.85543
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 996737705248919061, guid: faf1269e829890346b068831984ef101, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.54
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 996737705248919061, guid: faf1269e829890346b068831984ef101, type: 3}
       propertyPath: m_LocalPosition.z
@@ -488,11 +488,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 996737705248919061, guid: 3c2a0dafc0f8e774fa704eb111be2b51, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.46627
+      value: 33.1
       objectReference: {fileID: 0}
     - target: {fileID: 996737705248919061, guid: 3c2a0dafc0f8e774fa704eb111be2b51, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.21
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 996737705248919061, guid: 3c2a0dafc0f8e774fa704eb111be2b51, type: 3}
       propertyPath: m_LocalPosition.z
@@ -815,6 +815,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1244326405969825932, guid: c3499f67c69901442b1da0d9469ef4ad, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4362845673667347913, guid: c3499f67c69901442b1da0d9469ef4ad, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6719376740864577206, guid: c3499f67c69901442b1da0d9469ef4ad, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8936883195617128752, guid: c3499f67c69901442b1da0d9469ef4ad, type: 3}
       propertyPath: m_Name
       value: Capsule Player
@@ -1014,7 +1026,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 996737705248919061, guid: 7ec8d2729b88a2c4e82e969d8e220893, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.94
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 996737705248919061, guid: 7ec8d2729b88a2c4e82e969d8e220893, type: 3}
       propertyPath: m_LocalPosition.y
