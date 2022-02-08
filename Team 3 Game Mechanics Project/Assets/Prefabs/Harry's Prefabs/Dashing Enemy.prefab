@@ -291,7 +291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHealth: 50
   currentHealth: 0
-  damageCooldownTime: 0
+  damageCooldownTime: 0.5
 --- !u!114 &5563687929882015833
 MonoBehaviour:
   m_ObjectHideFlags: 0
