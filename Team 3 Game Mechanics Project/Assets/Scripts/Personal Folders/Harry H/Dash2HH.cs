@@ -1,20 +1,24 @@
+using System.Collections;
 using UnityEngine;
 
 public class Dash2HH : MonoBehaviour
 {
     private Rigidbody rb;
-    [SerializeField] private const float dashVelocity = 45f;
+    [SerializeField] private float dashVelocity = 45f;
     private float dashTime;
-    [SerializeField] private const float startDashTime = 0.2f;
+    [SerializeField] private float startDashTime = 0.2f;
     private Vector3 dashDirection;
     private CameraShakeHH cameraShake;
     private TrailRenderer trailRenderer;
+    //private bool canDash;
+    [SerializeField] private float dashCooldownTime = 3f;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        cameraShake = GetComponent<CameraShakeHH>();
+        cameraShake = GetComponentInChildren<CameraShakeHH>();
         trailRenderer = GetComponent<TrailRenderer>();
+        //canDash = true;
     }
 
     private void Update()
@@ -63,6 +67,8 @@ public class Dash2HH : MonoBehaviour
             {
                 // slowly decrease dashTime until it reaches 0 so dash stops
                 dashTime -= Time.deltaTime;
+                
+                //StartCoroutine(DashCooldown());
             }
         }
     }
@@ -75,7 +81,18 @@ public class Dash2HH : MonoBehaviour
 
     private void TriggerDashEffects()
     {
-        StartCoroutine(cameraShake.Shake(.15f, .4f));
+        StartCoroutine(cameraShake.Shake(.05f, .1f));
         trailRenderer.emitting = true;
+    }
+
+    // Had planned a cooldown but it wasn't working as desired
+    // TODO: Implement this
+    private IEnumerator DashCooldown()
+    {
+        //canDash = false;
+        yield return new WaitForSeconds(dashCooldownTime);
+        Debug.Log("Dash two active");
+        //canDash = true;
+        yield return null;
     }
 }
