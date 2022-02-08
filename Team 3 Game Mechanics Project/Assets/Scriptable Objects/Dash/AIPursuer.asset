@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a3e9b67bd45bbd4895467486731f83c, type: 3}
-  m_Name: AIDasher
+  m_Name: AIPursuer
   m_EditorClassIdentifier: 
   dashVelocity: 20
   dashCooldownTime: 2

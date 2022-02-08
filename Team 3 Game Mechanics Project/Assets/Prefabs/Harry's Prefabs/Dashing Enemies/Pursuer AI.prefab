@@ -184,7 +184,7 @@ GameObject:
   - component: {fileID: 7477427710205456588}
   - component: {fileID: 1542336802888904005}
   m_Layer: 6
-  m_Name: Dasher
+  m_Name: Pursuer AI
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

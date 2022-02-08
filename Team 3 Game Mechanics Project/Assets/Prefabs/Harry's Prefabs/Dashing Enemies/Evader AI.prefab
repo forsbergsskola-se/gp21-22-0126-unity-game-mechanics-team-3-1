@@ -182,9 +182,9 @@ GameObject:
   - component: {fileID: 6271665176540551091}
   - component: {fileID: 8083796153930683944}
   - component: {fileID: 7477427710205456588}
-  - component: {fileID: 8507286941578718650}
+  - component: {fileID: 996737705248919065}
   m_Layer: 6
-  m_Name: SkyDasher
+  m_Name: Evader AI
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,7 +199,7 @@ Transform:
   m_GameObject: {fileID: 8314543037338852654}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.06, y: 0.09, z: 0.05}
+  m_LocalScale: {x: 0.045, y: 0.05, z: 0.045}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6271665176334642227}
@@ -235,7 +235,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7c947e694fabe604fb8fc05a3c88339f, type: 2}
+  - {fileID: 2100000, guid: 60c5abe97df09c74f9c92ff9defef8c1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e22e2cc824ea243811623e896cd659, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeedSo: {fileID: 11400000, guid: 23ec2aac3e6497e44841414b2111d2b0, type: 2}
+  dashSpeedSo: {fileID: 11400000, guid: 7aedf56833788054095c4f0f457b355c, type: 2}
   dashingTime: 0.5
   canDash: 0
   flyingDashUnlocked: 0
@@ -468,8 +468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1dcbe80f312421468eb17532df1b616, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contactDamage: 5
---- !u!114 &8507286941578718650
+  contactDamage: 30
+--- !u!114 &996737705248919065
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -478,7 +478,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8314543037338852654}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08d39069b33c6f04cb2b780516e187d0, type: 3}
+  m_Script: {fileID: 11500000, guid: 6100324fa22962d49a1a70df72b1628f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8624056083749791083
