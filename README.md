@@ -14,7 +14,7 @@ Forsbergs Group Unity Project Jan - Feb 2022
 Description: 
 
 *I implemented two different dash mechanics.*
-*The first one "DashHH" is used by the three unique dashing enemies and the Player in the LVL 1 Scene. By finding the golden skull, the mechanic is upgraded for the player.*
+*The first one "DashHH" is used by the Player in the LVL 1 Scene, and by the three unique dashing AI over the two scenes. By finding the golden skull in the first level the mechanic is upgraded for the player, allowing for multidirectional dashing (vertical/ horizontal inputs and combinations).*
 *The second one "Dash2HH" is used by the player in the LVL 2 Scene as core movement.*
 
 
