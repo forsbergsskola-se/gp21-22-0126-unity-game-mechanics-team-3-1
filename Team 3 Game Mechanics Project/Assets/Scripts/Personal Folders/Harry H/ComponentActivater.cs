@@ -18,5 +18,6 @@ public class ComponentActivater : MonoBehaviour
       
       var component = (Player.GetComponent(ScriptToToggle) as MonoBehaviour);
       component.enabled = true;
+      gameObject.SetActive(false);
    }
 }
