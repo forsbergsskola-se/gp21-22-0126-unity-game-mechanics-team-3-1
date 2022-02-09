@@ -298,7 +298,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome to the tutorial
+  m_text: Welcome to the tutorial!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3c2a1602172339e439374353868f440c, type: 2}
   m_sharedMaterial: {fileID: 4655414196940038762, guid: 3c2a1602172339e439374353868f440c, type: 2}
@@ -331,11 +331,11 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
-  m_characterSpacing: -8
+  m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
