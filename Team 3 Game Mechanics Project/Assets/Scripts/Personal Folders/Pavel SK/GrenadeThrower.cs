@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GrenadeThrower : MonoBehaviour{
@@ -17,6 +15,8 @@ public class GrenadeThrower : MonoBehaviour{
     void ThrowGrenade(){
         GameObject grenade = Instantiate(grenadePrefab, transform.position, transform.rotation);
         Rigidbody rb = grenade.GetComponent<Rigidbody>();
-        rb.AddForce(transform.right * throwForce, ForceMode.VelocityChange);
+        
+        // Harry changed from transform.Right to new vector 3 using horizontal input
+        rb.AddForce(new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0) * throwForce, ForceMode.VelocityChange);
     }
 }
