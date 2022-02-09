@@ -651,22 +651,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 607886674647386551, guid: f0b286bc406058940b72b4111e10c306, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 607886674647386551, guid: f0b286bc406058940b72b4111e10c306, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 607886674647386551, guid: f0b286bc406058940b72b4111e10c306, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 192.25745
-      objectReference: {fileID: 0}
-    - target: {fileID: 607886674647386551, guid: f0b286bc406058940b72b4111e10c306, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -116.099976
-      objectReference: {fileID: 0}
     - target: {fileID: 621094466509139523, guid: f0b286bc406058940b72b4111e10c306, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -754,14 +738,6 @@ PrefabInstance:
     - target: {fileID: 621094466509139527, guid: f0b286bc406058940b72b4111e10c306, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8421151006499217316, guid: f0b286bc406058940b72b4111e10c306, type: 3}
-      propertyPath: m_text
-      value: Lvl 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8421151006499217316, guid: f0b286bc406058940b72b4111e10c306, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0b286bc406058940b72b4111e10c306, type: 3}
