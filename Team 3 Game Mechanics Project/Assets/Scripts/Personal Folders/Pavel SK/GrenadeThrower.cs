@@ -13,7 +13,7 @@ public class GrenadeThrower : MonoBehaviour{
         inputDirection = new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0);
         walkDirection = inputDirection;
         
-        if (Input.GetMouseButtonDown(0)){
+        if (Input.GetMouseButtonDown(1)){
             ThrowGrenade();
         }
     }
