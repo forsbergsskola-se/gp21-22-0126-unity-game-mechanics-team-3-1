@@ -1,5 +1,5 @@
 using UnityEngine;
-public class ComponentActivater : MonoBehaviour
+public class ComponentActivator : MonoBehaviour
 {
    public string ScriptToToggle;
    private GameObject Player;
