@@ -21,6 +21,8 @@ public class ResetHH : MonoBehaviour
 
         if (reset == 0)
         {
+            startPos = transform.position;
+            spawnPos = startPos;
             PlayerPrefs.SetInt("Respawns", 0);
             respawns = PlayerPrefs.GetInt("Respawns");
         }
@@ -43,6 +45,10 @@ public class ResetHH : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Restart();
+        }
         if (transform.position.y >= deathZone) return;
         HandleReset();
     }
@@ -70,6 +76,14 @@ public class ResetHH : MonoBehaviour
         PlayerPrefs.SetInt("Respawns", respawns);
         
         yield return new WaitForSeconds(respawnTime);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void Restart()
+    {
+        respawns+=1;
+        PlayerPrefs.SetInt("Respawns", respawns);
+        PlayerPrefs.SetInt("Reset", 0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
