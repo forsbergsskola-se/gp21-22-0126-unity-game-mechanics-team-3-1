@@ -4,7 +4,7 @@ using UnityEngine;
 public class Dash2HH : MonoBehaviour
 {
     private Rigidbody rb;
-    [SerializeField] private float dashVelocity = 45f;
+    [SerializeField] private float dashForce = 2500f;
     private float dashTime;
     [SerializeField] private float startDashTime = 0.2f;
     private Vector3 dashDirection;
@@ -73,10 +73,10 @@ public class Dash2HH : MonoBehaviour
         }
     }
 
-    // assigns velocity based on current dash direction until dashTime = 0
+    // assigns force added based on current dash direction until dashTime = 0
     private void ApplyVelocity(Vector3 dashDirection)
     {
-        rb.velocity = dashDirection * dashVelocity;
+        rb.AddForce(dashDirection * dashForce);
     }
 
     private void TriggerDashEffects()
