@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     private GameObject Player;
+    public string LevelToLoad;
 
     private void Awake()
     {
@@ -15,7 +16,7 @@ public class SceneLoader : MonoBehaviour
         // null ref return checks
         if (other.gameObject != Player) return;
         
-        LoadScene("Level 2");
+        LoadScene(LevelToLoad);
     }
 
     private static void LoadScene(string sceneName)
