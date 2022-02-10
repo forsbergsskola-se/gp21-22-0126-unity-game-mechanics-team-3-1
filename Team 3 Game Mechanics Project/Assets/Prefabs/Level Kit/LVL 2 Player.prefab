@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 6456810855374993921}
   - component: {fileID: 869681467738780173}
   - component: {fileID: 349993649}
+  - component: {fileID: 883975192109271251}
   m_Layer: 7
   m_Name: LVL 2 Player
   m_TagString: Player
@@ -478,6 +479,20 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &883975192109271251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4885006146027215240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f1dc623d5ba001469b6aa7d5da9f355, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwForce: 20
+  grenadePrefab: {fileID: 316436152327308281, guid: 62a5f1b2cbd1657499cfc928d4109d29, type: 3}
 --- !u!1 &8090678354902298625
 GameObject:
   m_ObjectHideFlags: 0
