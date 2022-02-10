@@ -8,10 +8,11 @@ public class ComponentActivator : MonoBehaviour
    private Vector3 dashUISpawnPos;
    private void Awake()
    {
-      // Disables dashUI if dash not yet unlocked
-      dashUI = GameObject.Find("Energy Bar").gameObject;
+      // Disables dashUI if dash not yet unlocked - commented out as a bit buggy
+      
+      /*dashUI = GameObject.Find("Energy Bar").gameObject;
       dashUISpawnPos = dashUI.transform.position;
-      dashUI.transform.position = new Vector3(1000, 1000, 0);
+      dashUI.transform.position = new Vector3(1000, 1000, 0);*/
 
       
       // Find and disable component specified in inspector
@@ -27,7 +28,7 @@ public class ComponentActivator : MonoBehaviour
       if (component == null) return;
 
       // enables Dash UI
-      dashUI.transform.position = dashUISpawnPos;
+      //dashUI.transform.position = dashUISpawnPos;
 
       // Updates spawn position to this checkpoint's X Vector location
       Player.GetComponent<ResetHH>().spawnPos.x = transform.position.x;
