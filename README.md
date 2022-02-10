@@ -44,3 +44,17 @@ Description:
 ### Yasin - Shoot Mechanic
 ##
 ### Pavel - Explode Mechanic
+
+Implemented Explosion mechanics
+
+- Explode mechanic
+  - "Explode.cs"Created a general adjustable explosive script where you can adjust the radius and also the force of it.
+  - Created "Grenade.cs" that delays the grenade explosion
+  - Created "GrenadeThrower.cs" that handles the trowing of the grenade with adjustable throwing force
+  - Creted "ExplodingDeath.cs" which creates a adjustable explosion of enemy death or if the enemy gets close enough
+
+Currently only the player can throw grenades
+
+- AI
+  - Exploding Enemy:
+  Chases the player when the player is inside its detection radius. Chases until it gets killed or until its near enough which it then suicides and explodes and harms the player.
