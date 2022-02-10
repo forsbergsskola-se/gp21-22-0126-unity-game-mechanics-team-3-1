@@ -30,7 +30,6 @@ public class ResetHH : MonoBehaviour
         if (respawns == 0)
         {
             Debug.Log($"Respawns: {respawns}");
-            PlayerPrefs.SetInt("Respawns", respawns);
             startPos = transform.position;
             spawnPos = startPos;
         }
