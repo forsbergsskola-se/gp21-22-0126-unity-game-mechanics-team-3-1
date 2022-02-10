@@ -121,16 +121,13 @@ GameObject:
   - component: {fileID: 9146202134855576646}
   - component: {fileID: 9182471387218717368}
   - component: {fileID: 7374111800501260985}
-  - component: {fileID: 4362845673667347913}
-  - component: {fileID: 6779412699582496643}
-  - component: {fileID: 5116585682012041785}
-  - component: {fileID: 6719376740864577206}
-  - component: {fileID: 554158071791446602}
-  - component: {fileID: 3737022802191489717}
-  - component: {fileID: 4597375736573081452}
-  - component: {fileID: 4597375735521055241}
-  - component: {fileID: 7260293041780502949}
   - component: {fileID: 1244326405969825932}
+  - component: {fileID: 4151424250163684767}
+  - component: {fileID: 4597375736573081452}
+  - component: {fileID: 2699194033623729149}
+  - component: {fileID: 7260293041780502949}
+  - component: {fileID: 3737022802191489717}
+  - component: {fileID: 4597375735521055241}
   m_Layer: 7
   m_Name: LVL 2 Capsule Player
   m_TagString: Player
@@ -264,20 +261,7 @@ MonoBehaviour:
   groundLayers:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &4362845673667347913
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8936883195617128752}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3510898529d21a44b935e2ba8b964e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkSpeedSO: {fileID: 11400000, guid: 6ff608534d1dcd54fb54dc8902fabf25, type: 2}
---- !u!114 &6779412699582496643
+--- !u!114 &1244326405969825932
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -286,14 +270,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8936883195617128752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d79a7a52c7c32e4b9770425e7495903, type: 3}
+  m_Script: {fileID: 11500000, guid: e82d4a9ca5192c0468ee50ca2034486e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 500
-  onJump:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &5116585682012041785
+  dashVelocity: 55
+  startDashTime: 0.15
+  dashCooldownTime: 1.5
+--- !u!114 &4151424250163684767
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -302,44 +285,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8936883195617128752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27a7c4d3a6ce3a54fafda51350b21558, type: 3}
+  m_Script: {fileID: 11500000, guid: 92a6bf3416152c94b8183da895ceacde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minimumJumpForce: 100
-  maximumJumpForce: 300
-  chargeTime: 1
-  onChargeJump:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4597375735521055241}
-        m_TargetAssemblyTypeName: ScaleAnimation, Assembly-CSharp
-        m_MethodName: PlayAnimation
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 1
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &6719376740864577206
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8936883195617128752}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18e22e2cc824ea243811623e896cd659, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashSpeedSo: {fileID: 11400000, guid: e0a98958b21657544979903bb98fca78, type: 2}
-  dashingTime: 0.5
-  canDash: 0
-  flyingDashUnlocked: 0
---- !u!114 &554158071791446602
+  firePoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  bulletForce: 50
+  moveSpeed: 5
+  cam: {fileID: 0}
+  rb: {fileID: 0}
+--- !u!114 &4597375736573081452
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -348,11 +303,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 8936883195617128752}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec4af4bd058d6324d817b79dc284f613, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f1dc623d5ba001469b6aa7d5da9f355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathZone: -1.5
-  respawnTime: 2.5
+  throwForce: 40
+  grenadePrefab: {fileID: 316436152327308281, guid: 62a5f1b2cbd1657499cfc928d4109d29, type: 3}
+--- !u!114 &2699194033623729149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8936883195617128752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d93c07834dfb14a9943bf4d34e9aa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathZone: -5
+  respawnTime: 3
+  spawnPos2: {x: 0, y: 0, z: 0}
+--- !u!114 &7260293041780502949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8936883195617128752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9520e40969db7440925e27736cea7f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
+  currentHealth: 0
+  damageCooldownTime: 1
 --- !u!96 &3737022802191489717
 TrailRenderer:
   serializedVersion: 2
@@ -461,20 +446,6 @@ TrailRenderer:
   m_MinVertexDistance: 0
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &4597375736573081452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8936883195617128752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f1dc623d5ba001469b6aa7d5da9f355, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  throwForce: 40
-  grenadePrefab: {fileID: 316436152327308281, guid: 62a5f1b2cbd1657499cfc928d4109d29, type: 3}
 --- !u!114 &4597375735521055241
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -521,36 +492,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7260293041780502949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8936883195617128752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9520e40969db7440925e27736cea7f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 100
-  currentHealth: 0
-  damageCooldownTime: 1
---- !u!114 &1244326405969825932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8936883195617128752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e82d4a9ca5192c0468ee50ca2034486e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashVelocity: 55
-  startDashTime: 0.15
-  dashCooldownTime: 1.5
 --- !u!1001 &5123825537644514145
 PrefabInstance:
   m_ObjectHideFlags: 0
