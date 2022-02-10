@@ -17,6 +17,10 @@ public class ComponentActivator : MonoBehaviour
       // null ref return checks
       if (other.gameObject != Player) return;
       if (component == null) return;
+
+
+      // Updates spawn position to this checkpoint's X Vector location
+      Player.GetComponent<ResetHH>().spawnPos.x = transform.position.x;
       
       // enable on trigger enter and deactivate this gameObject so script doesn't check on repeat trigger entries
       component.enabled = true;
