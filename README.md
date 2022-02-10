@@ -3,10 +3,9 @@ Forsbergs Group Unity Project Jan - Feb 2022
 
 # Game Engineers
 
-- Isac Lagerström
-- Harry Heath
-- Yasin Cakiroglu
-- Pavel Sarmiento Kochersky
+- [Harry Heath](https://github.com/HarryTheHeath)
+- [Yasin Cakiroglu](https://github.com/y4sn)
+- [Pavel Sarmiento Kochersky](https://github.com/Palutzii)
 
 # Mechanics & AI Implentation
 ### Harry - Dash Mechanic
@@ -41,8 +40,6 @@ Description:
   - "ResetHH.cs" script - reset scene on Death and spawn at last checkpoint location. There's two versions for two scenes as had to rush a bit.
   - "SceneLoader.cs" - loads next scene via string input
   - "CameraShake.cs" - can be called via explosive actions to randomly shake the game screen within given floats
-##
-### Isac - Fly Mechanic
 ##
 ### Yasin - Shoot Mechanic
 ##
