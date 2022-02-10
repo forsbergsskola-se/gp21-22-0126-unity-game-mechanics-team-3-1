@@ -4,8 +4,19 @@ public class ComponentActivator : MonoBehaviour
    public string ScriptToToggle;
    private GameObject Player;
    private Behaviour component;
+   private GameObject dashUI;
+   private Vector3 dashUISpawnPos;
    private void Awake()
    {
+      // Disables dashUI if dash not yet unlocked & if this is dash activator
+      if (name == "Dash Activator")
+      {
+         dashUI = GameObject.Find("Energy Bar").gameObject;
+         dashUISpawnPos = dashUI.transform.position;
+         dashUI.transform.position = new Vector3(1000, 1000, 0);
+
+
+      }
       // Find and disable component specified in inspector
       Player = FindObjectOfType<PlayerIdentifier>().gameObject;
       component = (Player.GetComponent(ScriptToToggle) as MonoBehaviour);
@@ -18,6 +29,9 @@ public class ComponentActivator : MonoBehaviour
       if (other.gameObject != Player) return;
       if (component == null) return;
 
+      // enables Dash UI if dash activator
+      if (name == "Dash Activator")
+         dashUI.transform.position = dashUISpawnPos;
 
       // Updates spawn position to this checkpoint's X Vector location
       Player.GetComponent<ResetHH>().spawnPos.x = transform.position.x;
