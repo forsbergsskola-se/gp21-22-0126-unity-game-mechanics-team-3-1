@@ -41,8 +41,13 @@ Description:
   - "SceneLoader.cs" - loads next scene via string input
   - "CameraShake.cs" - can be called via explosive actions to randomly shake the game screen within given floats
 ##
+
 ### Yasin - Shoot Mechanic
-##
+	Description:
+
+*I implemented two different shooting mechanics.*
+*The first one is called "ShootingLongRange" and the second one is called "ShootingShortRange".* 
+*You need to press "Mouse 1" to shoot.*
 ### Pavel - Explode Mechanic
 
 Implemented Explosion mechanics
