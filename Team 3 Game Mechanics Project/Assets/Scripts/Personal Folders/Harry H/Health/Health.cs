@@ -16,6 +16,7 @@ public class Health : MonoBehaviour
     // Text Mesh Pro elements
     private TMP_Text PlayerHealthText;
     private TMP_Text EnemyHealthText;
+    private Vector3 spawnPos;
 
     public void Awake()
     {
@@ -67,7 +68,10 @@ public class Health : MonoBehaviour
             // Player death resets scene
             case true when GetComponent<PlayerIdentifier>():
                 // TODO: gameObject.SetActive(false);
-                StartCoroutine(GetComponent<ResetHH>().Reset());
+                
+                //spawns in correct position
+                spawnPos = GetComponent<ResetHH>().spawnPos;
+                StartCoroutine(GetComponent<ResetHH>().Reset(spawnPos));
                 break;
         }
     }
