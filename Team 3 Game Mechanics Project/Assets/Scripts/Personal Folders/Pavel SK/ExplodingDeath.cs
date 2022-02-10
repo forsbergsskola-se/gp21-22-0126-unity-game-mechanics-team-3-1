@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExplodingDeath : MonoBehaviour{
-    public Collider enemyCollider;
-    public Collider playerCollider;
+    
     public Explode boom;
     Health health;
     
