@@ -5,7 +5,7 @@ public class ShootingLongRange : MonoBehaviour
     public Transform firePoint;
     public GameObject bulletPrefab;
     public float bulletForce = 50f;
-    public float moveSpeed = 5f;
+    //public float moveSpeed = 5f;
     public Camera cam;
     public Rigidbody rb;
     
@@ -26,7 +26,9 @@ public class ShootingLongRange : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        // Harry: have commented this out because we already have movement and it makes no sense to have it again
+        
+        //rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
         Vector3 lookDir = mousePos - rb.position;
         float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
         // rb.rotation = angle;
